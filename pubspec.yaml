@@ -42,6 +42,8 @@ dependencies:
   day_night_switcher: ^0.2.0+1
   provider: ^6.0.0
   shared_preferences: ^2.0.7
+  flutter_email_sender: ^5.0.2
+  webview_flutter: ^2.0.13
 
 dev_dependencies:
   flutter_test:

@@ -3,6 +3,7 @@ import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jamedadi/ThemeManager.dart';
+import 'package:jamedadi/MyWebView.dart';
 import 'package:jamedadi/about_us.dart';
 import 'package:jamedadi/main.dart';
 
@@ -137,7 +138,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 InkWell(
                   onTap: () {
-                    print("object");
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => MyWebView(
+                              title: "ارتباط با ما",
+                              selectedUrl:
+                                  "https://mahdiyaramirabadi.github.io/jamedadisite/",
+                            )));
                   },
                   child: Row(
                     children: [
@@ -157,7 +163,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           alignment: Alignment.centerRight,
                           width: MediaQuery.of(context).size.width / 3.3,
                           child: Text(
-                            "گزارش باگ",
+                            "ارتباط با ما",
                             style: TextStyle(
                               fontFamily: "Vazir",
                               fontSize: MediaQuery.of(context).size.width / 19,

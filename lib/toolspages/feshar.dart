@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jamedadi/BottomNavigator.dart';
+import 'package:jamedadi/appbar.dart';
 import 'package:jamedadi/main.dart';
 
 class Feshar extends StatefulWidget {
@@ -20,29 +21,7 @@ class _FesharState extends State<Feshar> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          "فشار",
-          style: TextStyle(
-            fontFamily: "Vazir",
-            color: Theme.of(context).accentColor,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).backgroundColor,
-        elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle,
-              color: Theme.of(context).accentColor,
-              size: 25,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: Toolsappbar(context, "فشار"),
       body: FisaUI(),
     );
   }

@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jamedadi/BottomNavigator.dart';
+import 'package:jamedadi/appbar.dart';
 import 'package:jamedadi/main.dart';
 import 'package:jamedadi/t.dart';
 import 'package:jamedadi/toolspages/adad.dart';
@@ -28,29 +29,7 @@ class _tabdil_damaState extends State<tabdil_dama> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          "تبدیل دما",
-          style: TextStyle(
-            fontFamily: "Vazir",
-            color: Theme.of(context).accentColor,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).backgroundColor,
-        elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle,
-              color: Theme.of(context).accentColor,
-              size: 25,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: Toolsappbar(context, "تبدیل دما"),
       body: damaUI(),
     );
   }

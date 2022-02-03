@@ -8,6 +8,7 @@ import 'package:jamedadi/about_us.dart';
 import 'package:jamedadi/main.dart';
 
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'Theme_Provider.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -23,6 +24,15 @@ class _SettingsPageState extends State<SettingsPage> {
     super.initState();
   }
 
+  _launchURLBrowser() async {
+    const url = 'https://mahdiyaramirabadi.github.io/jamedadisite/';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // final themeProvider = Provider.of<ThemeProvider>(context);
@@ -31,7 +41,7 @@ class _SettingsPageState extends State<SettingsPage> {
         appBar: AppBar(
           title: InkWell(
             child: Text(
-              "تنظمیات",
+              "تنظیمات",
               style: TextStyle(
                 fontFamily: "Vazir",
                 color: Theme.of(context).primaryColor,
@@ -137,14 +147,17 @@ class _SettingsPageState extends State<SettingsPage> {
                   endIndent: 0,
                 ),
                 InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (BuildContext context) => MyWebView(
-                              title: "ارتباط با ما",
-                              selectedUrl:
-                                  "https://mahdiyaramirabadi.github.io/jamedadisite/",
-                            )));
-                  },
+                  onTap: _launchURLBrowser
+
+                  // () {
+                  //   Navigator.of(context).push(MaterialPageRoute(
+                  //       builder: (BuildContext context) => MyWebView(
+                  //             title: "ارتباط با ما",
+                  //             selectedUrl:
+                  //                 "https://mahdiyaramirabadi.github.io/jamedadisite/",
+                  //           )));
+                  // }
+                  ,
                   child: Row(
                     children: [
                       Expanded(

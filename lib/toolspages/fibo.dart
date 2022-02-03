@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:jamedadi/BottomNavigator.dart';
 import 'package:jamedadi/main.dart';
 
+import '../appbar.dart';
+
 class fibo extends StatefulWidget {
   @override
   _fiboState createState() => _fiboState();
@@ -18,29 +20,7 @@ class _fiboState extends State<fibo> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          "فیبوناچی",
-          style: TextStyle(
-            fontFamily: "Vazir",
-            color: Theme.of(context).accentColor,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).backgroundColor,
-        elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle,
-              color: Theme.of(context).accentColor,
-              size: 25,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: Toolsappbar(context, "فیبوناچی"),
       body: GhotrUI(),
     );
   }
@@ -67,9 +47,6 @@ class _fiboState extends State<fibo> {
                       ),
                       color: Theme.of(context).primaryColor),
                   child: TextField(
-                    inputFormatters: [
-                      WhitelistingTextInputFormatter.digitsOnly
-                    ],
                     keyboardType: TextInputType.number,
                     cursorColor: Theme.of(context).cursorColor,
                     decoration: InputDecoration(

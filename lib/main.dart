@@ -1,6 +1,14 @@
 import 'dart:convert';
 import 'dart:ui';
-
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
+import 'package:http/http.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:async';
+import 'dart:io';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:jamedadi/Theme_Provider.dart';
@@ -36,17 +44,6 @@ class MyApp extends StatelessWidget {
             title: "Jamedadi",
           );
         }),
-        // builder: (context, _) {
-        //   final themeProvider = Provider.of<ThemeProvider>(context);
-        //   return MaterialApp(
-        //     debugShowCheckedModeBanner: false,
-        //     themeMode: themeProvider.themeMode,
-        //     theme: lightTheme,
-        //     darkTheme: darkTheme,
-        //     home: home(),
-        //     title: "Jamedadi",
-        //   );
-        // }
       );
 }
 
@@ -56,6 +53,7 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  static GlobalKey previewContainer = GlobalKey();
   List<HomeItem> _items = [];
   @override
   void initState() {
@@ -79,7 +77,6 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
       ),
       body: BodyUI(context),
     );
@@ -174,6 +171,7 @@ class _homeState extends State<home> {
       ),
     );
   }
+
   //
   // void fetchItems() async {
   //   var url = "http://testhost.freecloudsite.com/home.json";
@@ -274,10 +272,8 @@ Widget translateCard(String title, String id, context) {
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: () {
-            if (id == "tool") {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => toolsItem()));
-            }
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => MyApp()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

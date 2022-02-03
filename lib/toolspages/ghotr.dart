@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jamedadi/BottomNavigator.dart';
+import 'package:jamedadi/appbar.dart';
 import 'package:jamedadi/main.dart';
+import 'package:popup_card/popup_card.dart';
 
 class Ghotr extends StatefulWidget {
   @override
@@ -18,29 +20,7 @@ class _GhotrState extends State<Ghotr> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          "محاسبه قطر",
-          style: TextStyle(
-            fontFamily: "Vazir",
-            color: Theme.of(context).accentColor,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).backgroundColor,
-        elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle,
-              color: Theme.of(context).accentColor,
-              size: 25,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: Toolsappbar(context, "قطر"),
       body: GhotrUI(),
     );
   }
@@ -67,9 +47,6 @@ class _GhotrState extends State<Ghotr> {
                       ),
                       color: Theme.of(context).primaryColor),
                   child: TextField(
-                    inputFormatters: [
-                      WhitelistingTextInputFormatter.digitsOnly
-                    ],
                     keyboardType: TextInputType.number,
                     cursorColor: Theme.of(context).cursorColor,
                     decoration: InputDecoration(
@@ -146,6 +123,28 @@ class _GhotrState extends State<Ghotr> {
               ],
             ),
           ),
+          PopupItemLauncher(
+            tag: 'test',
+            child: Material(
+              color: Colors.white,
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32)),
+              child: const Icon(
+                Icons.add_rounded,
+                size: 56,
+              ),
+            ),
+            popUp: PopUpItem(
+              padding: EdgeInsets.all(8),
+              color: Colors.white,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32)),
+              elevation: 2,
+              tag: 'test',
+              child: PopUpItemBody(),
+            ),
+          )
         ],
       ),
     );
@@ -160,5 +159,49 @@ class _GhotrState extends State<Ghotr> {
 
       _ghotr_count = e;
     });
+  }
+}
+
+class PopUpItemBody extends StatelessWidget {
+  const PopUpItemBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const TextField(
+            decoration: InputDecoration(
+              hintText: 'New todo',
+              border: InputBorder.none,
+            ),
+            cursorColor: Colors.white,
+          ),
+          const Divider(
+            color: Colors.white,
+            thickness: 0.2,
+          ),
+          const TextField(
+            decoration: InputDecoration(
+              hintText: 'Write a note',
+              border: InputBorder.none,
+            ),
+            cursorColor: Colors.white,
+            maxLines: 6,
+          ),
+          const Divider(
+            color: Colors.white,
+            thickness: 0.2,
+          ),
+          TextButton(
+            onPressed: () {},
+            child: const Text('Add'),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jamedadi/BottomNavigator.dart';
+import 'package:jamedadi/appbar.dart';
 import 'package:jamedadi/main.dart';
 
 class Gharbal extends StatefulWidget {
@@ -20,29 +21,7 @@ class _GharbalState extends State<Gharbal> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          "غربال",
-          style: TextStyle(
-            fontFamily: "Vazir",
-            color: Theme.of(context).accentColor,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).backgroundColor,
-        elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle,
-              color: Theme.of(context).accentColor,
-              size: 25,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: Toolsappbar(context, "غربال"),
       body: GharbalUI(),
     );
   }
@@ -69,9 +48,6 @@ class _GharbalState extends State<Gharbal> {
                       ),
                       color: Theme.of(context).primaryColor),
                   child: TextField(
-                    inputFormatters: [
-                      WhitelistingTextInputFormatter.digitsOnly
-                    ],
                     keyboardType: TextInputType.number,
                     cursorColor: Colors.white,
                     decoration: InputDecoration(

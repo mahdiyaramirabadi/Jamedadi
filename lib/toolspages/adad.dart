@@ -1,9 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:jamedadi/BottomNavigator.dart';
-import 'package:jamedadi/main.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:jamedadi/appbar.dart';
+import 'package:popup_card/popup_card.dart';
 
 class Adad_aval extends StatefulWidget {
   @override
@@ -14,35 +12,15 @@ class _Adad_avalState extends State<Adad_aval> {
   var numController = TextEditingController();
   String _AdadAval = "...";
   List numbers = [];
+  String information =
+      "در این بخش میتوانید مشاهده کنید که عدد موردنظرتان اول است یا خیر و همچنین شمارنده های آن عدد را مشاهده کنید";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          "اعداد اول",
-          style: TextStyle(
-            fontFamily: "Vazir",
-            color: Theme.of(context).accentColor,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).backgroundColor,
-        elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.account_circle,
-              color: Theme.of(context).accentColor,
-              size: 25,
-            ),
-            onPressed: () {},
-          )
-        ],
-      ),
+      appBar: Toolsappbar(context, "اعداد اول"),
       body: AdadAvalUI(),
     );
   }
@@ -70,9 +48,6 @@ class _Adad_avalState extends State<Adad_aval> {
                       color: Theme.of(context).primaryColor),
                   child: Center(
                     child: TextField(
-                      inputFormatters: [
-                        WhitelistingTextInputFormatter.digitsOnly
-                      ],
                       keyboardType: TextInputType.number,
                       cursorColor: Theme.of(context).cursorColor,
                       decoration: InputDecoration(

@@ -1,18 +1,14 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:jamedadi/toolspages/dama.dart';
 import 'package:jamedadi/toolspages/electrisiteh.dart';
 import 'package:jamedadi/toolspages/feshar.dart';
+import 'package:jamedadi/toolspages/m-khayam.dart';
 import 'package:jamedadi/toolspages/mahlool.dart';
 import 'package:jamedadi/toolspages/zavieh.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:one_context/one_context.dart';
-// import 'package:http/http.dart';
 import 'package:jamedadi/toolspages/fibo.dart';
-import 'package:jamedadi/main.dart';
 import 'package:jamedadi/toolspages/vahed.dart';
 import 'toolspages/ghotr.dart';
 import 'toolspages/fisa.dart';
@@ -43,6 +39,7 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(4, 1.5),
   StaggeredTile.count(2, 1.5),
   StaggeredTile.count(2, 1.5),
+  StaggeredTile.count(4, 1.5),
 ];
 
 const List<Widget> _tiles = <Widget>[
@@ -54,6 +51,7 @@ const List<Widget> _tiles = <Widget>[
   _toolsTile("تــبــدیــل دمــا", "dama", 2),
   _toolsTile("الکتریسیته", "elec", 1),
   _toolsTile("فـشـار", "feshar", 1),
+  _toolsTile("مثلث خیام", "m-khayam", 2),
 ];
 
 class toolsItem extends StatefulWidget {
@@ -106,7 +104,8 @@ class _toolsItemState extends State<toolsItem> {
           centerTitle: true,
           backgroundColor: Theme.of(context).accentColor,
           elevation: 0,
-          leading: Icon(Icons.ios_share, color: Theme.of(context).primaryColor),
+          leading:
+              Icon(Iconsax.arrow_left_2, color: Theme.of(context).primaryColor),
         ),
         body: BodyUI());
   }
@@ -126,6 +125,7 @@ class _toolsItemState extends State<toolsItem> {
                 items: imgList
                     .map((item) => Container(
                           child: InkWell(
+                            borderRadius: BorderRadius.circular(25.0),
                             onTap: () {
                               print(imgList.indexOf(item));
                               print(imgList);
@@ -382,6 +382,9 @@ class _toolsTile extends StatelessWidget {
                 } else if (id == "mahlool") {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => Mahlool()));
+                } else if (id == "m-khayam") {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => MKhayam()));
                 }
               },
               child: Center(

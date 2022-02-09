@@ -1,30 +1,15 @@
-import 'dart:convert';
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
-import 'package:http/http.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:jamedadi/Samplequestions.dart';
-import 'package:path_provider/path_provider.dart';
-import 'dart:async';
-import 'dart:io';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:jamedadi/Theme_Provider.dart';
 import 'package:jamedadi/lesson.dart';
 import 'package:jamedadi/settingspage.dart';
-import 'package:jamedadi/theme_notifier.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'BottomNavigator.dart';
-import 'ThemeManager.dart';
 // import 'package:http/http.dart';
 import 'homeItem.dart';
 import 'tools.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   return runApp(MyApp());
@@ -215,7 +200,7 @@ Widget generateItem(String title, String id, context) {
                 PageTransition(
                   curve: Curves.linear,
                   type: PageTransitionType.scale,
-                  alignment: Alignment.topCenter,
+                  alignment: Alignment.centerRight,
                   duration: Duration(seconds: 1),
                   child: toolsItem(),
                 ));
@@ -225,7 +210,7 @@ Widget generateItem(String title, String id, context) {
                 PageTransition(
                   curve: Curves.linear,
                   type: PageTransitionType.scale,
-                  alignment: Alignment.topCenter,
+                  alignment: Alignment.centerRight,
                   duration: Duration(seconds: 1),
                   child: Lesson(),
                 ));
@@ -235,7 +220,7 @@ Widget generateItem(String title, String id, context) {
                 PageTransition(
                   curve: Curves.linear,
                   type: PageTransitionType.scale,
-                  alignment: Alignment.topCenter,
+                  alignment: Alignment.centerRight,
                   duration: Duration(seconds: 1),
                   child: Samplequestion(),
                 ));
@@ -283,8 +268,42 @@ Widget translateCard(String title, String id, context) {
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => MyApp()));
+            showAnimatedDialog(
+                animationType: DialogTransitionType.slideFromBottomFade,
+                curve: Curves.fastOutSlowIn,
+                duration: Duration(seconds: 1),
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: new Text(
+                      "در حال توسعه....",
+                      style: Theme.of(context).textTheme.headline5,
+                      textDirection: TextDirection.rtl,
+                    ),
+                    content: new Text(
+                        "این بخش در حال توسعه است و بزودی راه اندازی خواهد شد",
+                        style: Theme.of(context).textTheme.bodyText1,
+                        textDirection: TextDirection.rtl),
+                    actions: <Widget>[
+                      new FlatButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                          ),
+                          color: Theme.of(context).accentColor,
+                          onPressed: () async {
+                            Navigator.of(context).pop();
+                          },
+                          child: new Text(
+                            "متوجه شدم",
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor),
+                          ))
+                    ],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                  );
+                });
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

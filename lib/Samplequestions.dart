@@ -7,12 +7,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'lesson value/lesson_value.dart';
 
-class Lesson extends StatefulWidget {
+class Samplequestion extends StatefulWidget {
   @override
-  _LessonState createState() => _LessonState();
+  _SamplequestionState createState() => _SamplequestionState();
 }
 
-class _LessonState extends State<Lesson> {
+class _SamplequestionState extends State<Samplequestion> {
   List<Lesson_Value> _items = [];
   List<Lesson_Value> _items_oloom = [];
   List<Lesson_Value> _items_math = [];
@@ -41,7 +41,7 @@ class _LessonState extends State<Lesson> {
           child: Scaffold(
             appBar: AppBar(
               title: Text(
-                "درسنامه",
+                "نمونه سوالات",
                 style: TextStyle(
                     fontFamily: "Vazir", color: Theme.of(context).primaryColor),
               ),

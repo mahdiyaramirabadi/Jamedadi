@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart';
+import 'package:jamedadi/Samplequestions.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:async';
 import 'dart:io';
@@ -106,7 +107,7 @@ class _homeState extends State<home> {
                         left: 5),
                     child: Row(
                       children: [
-                        generateItem("نمونه سوالات", "test", context),
+                        generateItem("نمونه سوالات", "samplequestion", context),
                         generateItem("درسنامه ها", "lesson", context),
                         generateItem("ابزارها", "tool", context)
                       ],
@@ -226,7 +227,17 @@ Widget generateItem(String title, String id, context) {
                   type: PageTransitionType.scale,
                   alignment: Alignment.topCenter,
                   duration: Duration(seconds: 1),
-                  child: TabDream11(),
+                  child: Lesson(),
+                ));
+          } else if (id == "samplequestion") {
+            Navigator.push(
+                context,
+                PageTransition(
+                  curve: Curves.linear,
+                  type: PageTransitionType.scale,
+                  alignment: Alignment.topCenter,
+                  duration: Duration(seconds: 1),
+                  child: Samplequestion(),
                 ));
           }
         },

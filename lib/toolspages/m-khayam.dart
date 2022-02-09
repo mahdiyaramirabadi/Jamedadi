@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'mahlool modal/vahedmodal.dart';
 
@@ -34,7 +35,13 @@ class _MKhayamState extends State<MKhayam> {
             centerTitle: true,
             backgroundColor: Theme.of(context).accentColor,
             elevation: 0,
-            leading: SizedBox(),
+            leading: IconButton(
+              onPressed: () {
+                _showDialog("informationContent", context);
+              },
+              icon: Icon(Iconsax.info_circle,
+                  color: Theme.of(context).primaryColor),
+            ),
             bottom: PreferredSize(
                 child: TabBar(
                     isScrollable: false,
@@ -402,6 +409,43 @@ class _MKhayamState extends State<MKhayam> {
             ],
           )),
     );
+  }
+
+  void _showDialog(String content, BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: new Text(
+              "راهنما",
+              style: Theme.of(context).textTheme.headline5,
+              textDirection: TextDirection.rtl,
+            ),
+            content: new Text(
+              content,
+              style: Theme.of(context).textTheme.bodyText1,
+              textDirection: TextDirection.rtl,
+              textAlign: TextAlign.justify,
+            ),
+            actions: <Widget>[
+              new FlatButton(
+                  color: Theme.of(context).accentColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop(true);
+                  },
+                  child: new Text(
+                    "متوجه شدم",
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  ))
+            ],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20)),
+            ),
+          );
+        });
   }
 
   // ignore: non_constant_identifier_names

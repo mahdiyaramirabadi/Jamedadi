@@ -21,7 +21,11 @@ class _FesharState extends State<Feshar> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: Toolsappbar(context, "فشار"),
+      appBar: Toolsappbar(context, "فشار",
+          """نیرو را وارد کنید و بعد از آن مقدار سطح را به متر مربع وارد نمایید
+حال روی محاسبه کلیک کنید
+عددی که می‌بینید فشار محاسبه شده بر اساس داده های وارد شده و با واحد پاسکال است
+"""),
       body: FisaUI(),
     );
   }

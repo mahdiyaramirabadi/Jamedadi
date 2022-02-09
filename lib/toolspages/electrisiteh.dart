@@ -41,18 +41,7 @@ class _ElectrisitehState extends State<Electrisiteh> {
             centerTitle: true,
             backgroundColor: Theme.of(context).accentColor,
             elevation: 0,
-            actions: [
-              IconButton(
-                icon: Icon(
-                  Icons.account_circle,
-                  color: Theme.of(context).primaryColor,
-                  size: 25,
-                ),
-                onPressed: () {},
-              )
-            ],
-            leading:
-                Icon(Icons.ios_share, color: Theme.of(context).primaryColor),
+            leading: SizedBox(),
             bottom: PreferredSize(
                 child: TabBar(
                     isScrollable: true,

@@ -20,7 +20,8 @@ class _Adad_avalState extends State<Adad_aval> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: Toolsappbar(context, "اعداد اول"),
+      appBar: Toolsappbar(context, "اعداد اول",
+          "با وارد کردن عدد مورد نظر و زدن دکمه محاسبه میتوانید ببیند عدد اول است یا مرکب و همچنین شمارنده های آن را دریافت کنید"),
       body: AdadAvalUI(),
     );
   }

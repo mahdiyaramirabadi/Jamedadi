@@ -33,7 +33,10 @@ class _tabdil_vahedState extends State<tabdil_vahed> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: Toolsappbar(context, "تبدیل واحد"),
+      appBar: Toolsappbar(context, "تبدیل واحد",
+          """ابتدا عدد را وارد کنید سپس پیشوندی که فعلی واحد را وارد کنید و بعد از آن پیشوندی که میخواهید وحد به آن تبدیل شود را وارد کنید
+حال ضریب کل واحد را انتخاب کنید و روی محاسبه کلیک کنید
+"""),
       body: vahedUI(),
     );
   }
@@ -350,29 +353,29 @@ class _tabdil_vahedState extends State<tabdil_vahed> {
         });
       }
     } else {
-      var result_list = [];
+      var error_list = [];
       if (num == "") {
-        result_list.add("عدد");
+        error_list.add("عدد");
       }
       if (zarib1_hint == "پیشوند فعلی" || zarib2_hint == "پیشوند خواسته شده") {
-        result_list.add("پیشوند ها");
+        error_list.add("پیشوند ها");
       }
       if (zarib_kol_hint == "ضریب کل") {
-        result_list.add("ضریب");
+        error_list.add("ضریب");
       }
 
       setState(() {
         var result_str = "";
-        print(result_list.length);
-        if (result_list.length > 1) {
-          var len = result_list.length - 1;
+        print(error_list.length);
+        if (error_list.length > 1) {
+          var len = error_list.length - 1;
           for (var i = 0; i < len; i++) {
-            result_list[i] += "،";
+            error_list[i] += "،";
           }
         }
-        print(result_list);
+        print(error_list);
 
-        for (var i in result_list) {
+        for (var i in error_list) {
           result_str += i;
         }
         result_str += " را وارد کنید";

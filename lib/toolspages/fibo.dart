@@ -20,7 +20,10 @@ class _fiboState extends State<fibo> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: Toolsappbar(context, "فیبوناچی"),
+      appBar: Toolsappbar(context, "فیبوناچی",
+          """ابتدا عدد n ام را وارد کنید سپس روی محاسبه کلیک کنید
+حال همه عداد الگو فیبوناچی را تا شماره n وارد شده مشاهده می‌کنید
+"""),
       body: GhotrUI(),
     );
   }

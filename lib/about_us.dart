@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'BottomNavigator.dart';
 
@@ -41,7 +42,15 @@ class _AboutUsPageState extends State<AboutUsPage> {
         SingleChildScrollView(
           child: Column(
             children: [
-              Image.network("https://www.rodgraphic.ir/jamedadi/about_us.jpg"),
+              CachedNetworkImage(
+                imageUrl: "https://www.rodgraphic.ir/jamedadi/about_us.jpg",
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    CircularProgressIndicator(
+                  value: downloadProgress.progress,
+                  color: Theme.of(context).accentColor,
+                ),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
               Padding(
                 padding: EdgeInsets.only(right: 20, left: 20, top: 10),
                 child: Column(children: [

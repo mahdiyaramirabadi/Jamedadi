@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:jamedadi/BottomNavigator.dart';
 import 'package:jamedadi/appbar.dart';
 import 'package:jamedadi/main.dart';
-import 'package:popup_card/popup_card.dart';
 
 class Ghotr extends StatefulWidget {
   @override
@@ -20,7 +19,8 @@ class _GhotrState extends State<Ghotr> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: Toolsappbar(context, "قطر"),
+      appBar: Toolsappbar(context, "قطر",
+          "تعداد اضلاع را وادر کنید سپس روی محاسبه کلیک کنید. عددی که مشاهده می کنید تعداد قطر های چند ضلعی خواسته شده است"),
       body: GhotrUI(),
     );
   }
@@ -123,28 +123,6 @@ class _GhotrState extends State<Ghotr> {
               ],
             ),
           ),
-          PopupItemLauncher(
-            tag: 'test',
-            child: Material(
-              color: Colors.white,
-              elevation: 2,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32)),
-              child: const Icon(
-                Icons.add_rounded,
-                size: 56,
-              ),
-            ),
-            popUp: PopUpItem(
-              padding: EdgeInsets.all(8),
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(32)),
-              elevation: 2,
-              tag: 'test',
-              child: PopUpItemBody(),
-            ),
-          )
         ],
       ),
     );

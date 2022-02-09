@@ -21,7 +21,10 @@ class _GharbalState extends State<Gharbal> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: Toolsappbar(context, "غربال"),
+      appBar: Toolsappbar(
+          context, "غربال", """ابتدا عدد را وارد کنید و سپس روی محاسبه کلیک کنید
+حال همه اعداد اول تا عدد وارد شده را مشاهده می‌کنید
+"""),
       body: GharbalUI(),
     );
   }

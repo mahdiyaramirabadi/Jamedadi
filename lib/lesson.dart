@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:jamedadi/main.dart';
 import 'package:simple_connection_checker/simple_connection_checker.dart';
 import 'package:http/http.dart';
@@ -48,6 +49,7 @@ class _LessonState extends State<Lesson> {
               centerTitle: true,
               backgroundColor: Theme.of(context).accentColor,
               elevation: 0,
+              leading: SizedBox(),
               bottom: PreferredSize(
                   child: TabBar(
                       isScrollable: true,
@@ -244,7 +246,9 @@ class _LessonState extends State<Lesson> {
                   new FlatButton(
                       color: Theme.of(context).accentColor,
                       onPressed: () async {
-                        Navigator.of(context).pop();
+                        Navigator.of(context).pop(true);
+                        Navigator.of(context).pop(true);
+
                         fetchItems();
                       },
                       child: new Text(
@@ -257,33 +261,50 @@ class _LessonState extends State<Lesson> {
 
     void _showDialog2(
         String title, String content, String btntext, BuildContext context) {
-      showDialog(
+      showAnimatedDialog(
+          animationType: DialogTransitionType.slideFromBottomFade,
+          curve: Curves.fastOutSlowIn,
+          duration: Duration(seconds: 1),
           context: context,
           builder: (BuildContext context) {
             return AlertDialog(
-                title: new Text(
-                  title,
-                  style: Theme.of(context).textTheme.headline5,
-                  textDirection: TextDirection.rtl,
-                ),
-                content: new Text(content,
-                    style: Theme.of(context).textTheme.bodyText1,
-                    textDirection: TextDirection.rtl),
-                actions: <Widget>[
-                  new FlatButton(
-                      color: Theme.of(context).accentColor,
-                      onPressed: () {
-                        Navigator.of(context).pop(true);
-                        Navigator.of(context).pop(true);
-                      },
-                      child: new Text(
-                        btntext,
-                        style: TextStyle(color: Theme.of(context).primaryColor),
-                      ))
-                ]);
+              title: new Text(
+                title,
+                style: Theme.of(context).textTheme.headline5,
+                textDirection: TextDirection.rtl,
+              ),
+              content: new Text(content,
+                  style: Theme.of(context).textTheme.bodyText1,
+                  textDirection: TextDirection.rtl),
+              actions: <Widget>[
+                new FlatButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                    color: Theme.of(context).accentColor,
+                    onPressed: () {
+                      Navigator.of(context).pop(true);
+                      Navigator.of(context).pop(true);
+                    },
+                    child: new Text(
+                      btntext,
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ))
+              ],
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+            );
           });
     }
 
+    setState(() {
+      _showDialog2(
+          "در حال توسعه....",
+          "این بخش در حال توسعه است و بزودی راه اندازی خواهد شد",
+          "بازگشت",
+          context);
+    });
     var url = "https://rodgraphic.ir/jamedadi/test.json";
 
     if (isConnected == true) {
@@ -321,13 +342,6 @@ class _LessonState extends State<Lesson> {
       print("internet no connected");
       print(isConnected.toString());
     }
-    setState(() {
-      _showDialog2(
-          "در حال توسعه....",
-          "این بخش در حال توسعه است و بزودی راه اندازی خواهد شد",
-          "بازگشت",
-          context);
-    });
   }
 }
 

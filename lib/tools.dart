@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iconsax/iconsax.dart';
@@ -104,8 +105,13 @@ class _toolsItemState extends State<toolsItem> {
           centerTitle: true,
           backgroundColor: Theme.of(context).accentColor,
           elevation: 0,
-          leading:
-              Icon(Iconsax.arrow_left_2, color: Theme.of(context).primaryColor),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+            icon: Icon(Iconsax.arrow_left_2,
+                color: Theme.of(context).primaryColor),
+          ),
         ),
         body: BodyUI());
   }
@@ -154,7 +160,8 @@ class _toolsItemState extends State<toolsItem> {
                                       BorderRadius.all(Radius.circular(25.0)),
                                   child: Stack(
                                     children: <Widget>[
-                                      imageloader(),
+                                      imageloader(
+                                          "https://rodgraphic.ir/jamedadi/sliderbg.png"),
                                       Center(
                                         child: Column(
                                             mainAxisAlignment:
@@ -229,10 +236,17 @@ class _toolsItemState extends State<toolsItem> {
   }
 }
 
-Widget imageloader() {
+Widget imageloader(String img_url) {
   try {
-    return Image.network("https://rodgraphic.ir/jamedadi/sliderbg.png",
-        fit: BoxFit.cover, width: 1000.0);
+    return CachedNetworkImage(
+      imageUrl: img_url,
+      progressIndicatorBuilder: (context, url, downloadProgress) =>
+          CircularProgressIndicator(
+        value: downloadProgress.progress,
+        color: Theme.of(context).accentColor,
+      ),
+      errorWidget: (context, url, error) => Icon(Icons.error),
+    );
   } on Exception {
     return Container();
   }
@@ -241,7 +255,9 @@ Widget imageloader() {
 DecorationImage imageloadertile() {
   try {
     return DecorationImage(
-      image: NetworkImage("https://www.rodgraphic.ir/jamedadi/items-tile.png"),
+      image: CachedNetworkImageProvider(
+          "https://www.rodgraphic.ir/jamedadi/items-tile.png"),
+      // image: NetworkImage("https://www.rodgraphic.ir/jamedadi/items-tile.png"),
       fit: BoxFit.fitWidth,
       alignment: Alignment.topCenter,
     );

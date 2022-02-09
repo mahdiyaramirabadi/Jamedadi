@@ -29,7 +29,10 @@ class _tabdil_damaState extends State<tabdil_dama> {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       resizeToAvoidBottomInset: false,
-      appBar: Toolsappbar(context, "تبدیل دما"),
+      appBar: Toolsappbar(context, "تبدیل دما",
+          """ابتدا میزان دما را وارد کرده و با کلیک روی «واحد فعلی»،واحد فعلی دما را وارد کنید
+حال واحدی که میخواهید دما به آن تبدیل شود را انتخاب کنید و روی محاسبه کلیک کنید
+"""),
       body: damaUI(),
     );
   }

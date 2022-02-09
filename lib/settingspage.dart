@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:jamedadi/ThemeManager.dart';
 import 'package:jamedadi/MyWebView.dart';
 import 'package:jamedadi/about_us.dart';
@@ -51,7 +52,13 @@ class _SettingsPageState extends State<SettingsPage> {
           centerTitle: true,
           backgroundColor: Theme.of(context).accentColor,
           elevation: 0,
-          leading: Icon(Icons.ios_share, color: Theme.of(context).primaryColor),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
+            icon: Icon(Iconsax.arrow_left_2,
+                color: Theme.of(context).primaryColor),
+          ),
         ),
         body: BodyUI());
   }

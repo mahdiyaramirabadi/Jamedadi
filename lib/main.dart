@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 // import 'package:http/http.dart';
 import 'homeItem.dart';
 import 'tools.dart';
+import 'package:share_plus/share_plus.dart';
 
 void main() {
   return runApp(MyApp());
@@ -63,6 +64,12 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
+        leading: IconButton(
+            onPressed: () async {
+              await Share.share('ابن تست شیر جامدادی است',
+                  subject: 'Look what I made!');
+            },
+            icon: Icon(Iconsax.share, color: Theme.of(context).accentColor)),
       ),
       body: BodyUI(context),
     );

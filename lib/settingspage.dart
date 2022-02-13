@@ -25,12 +25,12 @@ class _SettingsPageState extends State<SettingsPage> {
     super.initState();
   }
 
-  _launchURLBrowser() async {
-    const url = 'https://mahdiyaramirabadi.github.io/jamedadisite/';
-    if (await canLaunch(url)) {
-      await launch(url);
+  _launchURLBrowser(String url) async {
+    String _url = url;
+    if (await canLaunch(_url)) {
+      await launch(_url);
     } else {
-      throw 'Could not launch $url';
+      throw 'Could not launch $_url';
     }
   }
 
@@ -154,7 +154,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   endIndent: 0,
                 ),
                 InkWell(
-                  onTap: _launchURLBrowser
+                  onTap: () {
+                    _launchURLBrowser("https://zil.ink/jamedadi");
+                  }
 
                   // () {
                   //   Navigator.of(context).push(MaterialPageRoute(

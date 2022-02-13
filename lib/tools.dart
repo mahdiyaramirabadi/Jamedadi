@@ -5,8 +5,10 @@ import 'package:iconsax/iconsax.dart';
 import 'package:jamedadi/toolspages/dama.dart';
 import 'package:jamedadi/toolspages/electrisiteh.dart';
 import 'package:jamedadi/toolspages/feshar.dart';
+import 'package:jamedadi/toolspages/hajm.dart';
 import 'package:jamedadi/toolspages/m-khayam.dart';
 import 'package:jamedadi/toolspages/mahlool.dart';
+import 'package:jamedadi/toolspages/masahat.dart';
 import 'package:jamedadi/toolspages/zavieh.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:jamedadi/toolspages/fibo.dart';
@@ -41,6 +43,8 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(2, 1.5),
   StaggeredTile.count(2, 1.5),
   StaggeredTile.count(4, 1.5),
+  StaggeredTile.count(2, 1.5),
+  StaggeredTile.count(2, 1.5),
 ];
 
 const List<Widget> _tiles = <Widget>[
@@ -53,6 +57,8 @@ const List<Widget> _tiles = <Widget>[
   _toolsTile("الکتریسیته", "elec", 1),
   _toolsTile("فـشـار", "feshar", 1),
   _toolsTile("مثلث خیام", "m-khayam", 2),
+  _toolsTile("حجم", "hajm", 1),
+  _toolsTile("مساحت", "masahat", 1),
 ];
 
 class toolsItem extends StatefulWidget {
@@ -401,6 +407,12 @@ class _toolsTile extends StatelessWidget {
                 } else if (id == "m-khayam") {
                   Navigator.of(context)
                       .push(MaterialPageRoute(builder: (context) => MKhayam()));
+                } else if (id == "hajm") {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Hajm_home()));
+                } else if (id == "masahat") {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => Masahat_home()));
                 }
               },
               child: Center(

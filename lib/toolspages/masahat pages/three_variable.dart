@@ -3,14 +3,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tex/flutter_tex.dart';
 
-class Parallelepiped extends StatefulWidget {
+class Threevar extends StatefulWidget {
   final String title;
   final String id;
   final String img_url;
   final String formula;
   final List textfield_hint;
 
-  const Parallelepiped(
+  const Threevar(
       {Key? key,
       required this.title,
       required this.img_url,
@@ -20,17 +20,13 @@ class Parallelepiped extends StatefulWidget {
       : super(key: key);
 
   @override
-  _ParallelepipedState createState() => _ParallelepipedState();
+  _ThreevarState createState() => _ThreevarState();
 }
 
-class _ParallelepipedState extends State<Parallelepiped> {
+class _ThreevarState extends State<Threevar> {
   var value1Controller = TextEditingController();
   var value2Controller = TextEditingController();
   var value3Controller = TextEditingController();
-  var value4Controller = TextEditingController();
-  var value5Controller = TextEditingController();
-  var value6Controller = TextEditingController();
-
   String _result = "...";
 
   @override
@@ -66,7 +62,7 @@ class _ParallelepipedState extends State<Parallelepiped> {
                 padding: EdgeInsets.only(
                     left: MediaQuery.of(context).size.width / 10,
                     right: MediaQuery.of(context).size.width / 10,
-                    top: MediaQuery.of(context).size.height / 40,
+                    top: MediaQuery.of(context).size.height / 20,
                     bottom: MediaQuery.of(context).size.height / 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,7 +101,7 @@ class _ParallelepipedState extends State<Parallelepiped> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 50,
+                      height: MediaQuery.of(context).size.height / 22,
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -140,7 +136,7 @@ class _ParallelepipedState extends State<Parallelepiped> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 50,
+                      height: MediaQuery.of(context).size.height / 22,
                     ),
                     Container(
                       decoration: BoxDecoration(
@@ -175,111 +171,6 @@ class _ParallelepipedState extends State<Parallelepiped> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height / 50,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Theme.of(context).accentColor,
-                          ),
-                          color: Theme.of(context).primaryColor),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        cursorColor: Theme.of(context).cursorColor,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.fromLTRB(10, 20, 40, 20),
-                          hintText: widget.textfield_hint[3],
-                          hintStyle:
-                              TextStyle(color: Theme.of(context).accentColor),
-                          icon: Padding(
-                            padding: EdgeInsets.only(left: 15),
-                            child: Icon(Icons.linear_scale,
-                                color: Theme.of(context).accentColor),
-                          ),
-                        ),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: "Vazir",
-                          fontSize: MediaQuery.of(context).size.width / 20,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        controller: value4Controller,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 50,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Theme.of(context).accentColor,
-                          ),
-                          color: Theme.of(context).primaryColor),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        cursorColor: Theme.of(context).cursorColor,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.fromLTRB(10, 20, 40, 20),
-                          hintText: widget.textfield_hint[4],
-                          hintStyle:
-                              TextStyle(color: Theme.of(context).accentColor),
-                          icon: Padding(
-                            padding: EdgeInsets.only(left: 15),
-                            child: Icon(Icons.linear_scale,
-                                color: Theme.of(context).accentColor),
-                          ),
-                        ),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: "Vazir",
-                          fontSize: MediaQuery.of(context).size.width / 20,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        controller: value5Controller,
-                      ),
-                    ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height / 50,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(
-                            width: 2.0,
-                            color: Theme.of(context).accentColor,
-                          ),
-                          color: Theme.of(context).primaryColor),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        cursorColor: Theme.of(context).cursorColor,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.fromLTRB(10, 20, 40, 20),
-                          hintText: widget.textfield_hint[5],
-                          hintStyle:
-                              TextStyle(color: Theme.of(context).accentColor),
-                          icon: Padding(
-                            padding: EdgeInsets.only(left: 15),
-                            child: Icon(Icons.linear_scale,
-                                color: Theme.of(context).accentColor),
-                          ),
-                        ),
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: "Vazir",
-                          fontSize: MediaQuery.of(context).size.width / 20,
-                          color: Theme.of(context).accentColor,
-                        ),
-                        controller: value6Controller,
-                      ),
-                    ),
-                    SizedBox(
                       height: MediaQuery.of(context).size.height / 22,
                     ),
                     Container(
@@ -293,14 +184,16 @@ class _ParallelepipedState extends State<Parallelepiped> {
                       height: MediaQuery.of(context).size.height / 13,
                       child: InkWell(
                         onTap: () {
-                          motvazialsotooh_hajm();
-                          // Parallelepiped_hajm(
-                          //     value1Controller.text,
-                          //     value2Controller.text,
-                          //     value3Controller.text,
-                          //     value4Controller.text,
-                          //     value5Controller.text,
-                          //     value6Controller.text);
+                          if (widget.id == "s-abc") {
+                            mosalas_mohit_va_zel_mas(value1Controller.text,
+                                value2Controller.text, value3Controller.text);
+                          } else if (widget.id == "ab-y") {
+                            mosalas_do_zel_va_zaviye_mas(value1Controller.text,
+                                value2Controller.text, value3Controller.text);
+                          } else if (widget.id == "Trapezoid") {
+                            zooznanghe_mas(value1Controller.text,
+                                value2Controller.text, value3Controller.text);
+                          }
                         },
                         child: Center(
                           child: Text(
@@ -385,14 +278,20 @@ class _ParallelepipedState extends State<Parallelepiped> {
     );
   }
 
-  Parallelepiped_hajm(
-      String a, String b, String c, String alfa, String beta, String gamma) {
-    if (a != "" &&
-        b != "" &&
-        c != "" &&
-        alfa != "" &&
-        beta != "" &&
-        gamma != "") {
+  void set_result(result) {
+    setState(() {
+      _result = result.toString();
+    });
+  }
+
+  void set_error_result() {
+    setState(() {
+      _result = "لطفا مقادیر را وارد کنید";
+    });
+  }
+
+  mosalas_mohit_va_zel_mas(String a, String b, String c) {
+    if (a != "" && b != "" && c != "") {
       var _a;
       if (a.contains(".") == true) {
         _a = double.parse(a);
@@ -403,127 +302,61 @@ class _ParallelepipedState extends State<Parallelepiped> {
       var _b;
       if (b.contains(".") == true) {
         _b = double.parse(b);
-      } else if (b.contains(".") == false) {
+      } else if (a.contains(".") == false) {
         _b = int.parse(b);
       }
       var _c;
       if (c.contains(".") == true) {
         _c = double.parse(c);
-      } else if (c.contains(".") == false) {
+      } else if (a.contains(".") == false) {
         _c = int.parse(c);
       }
-      var _alfa;
-      if (alfa.contains(".") == true) {
-        _alfa = double.parse(alfa);
-      } else if (alfa.contains(".") == false) {
-        _alfa = int.parse(alfa);
-      }
+      var mosalas_mohit_va_zel_mas_s = _a + _b + _c;
+      var mosalas_mohit_va_zel_mas_a = _a;
+      var mosalas_mohit_va_zel_mas_b = _b;
+      var mosalas_mohit_va_zel_mas_c = _c;
+      var mosalas_mohit_va_zel_mas_ebarat = mosalas_mohit_va_zel_mas_s *
+          (mosalas_mohit_va_zel_mas_s - mosalas_mohit_va_zel_mas_a) *
+          (mosalas_mohit_va_zel_mas_s - mosalas_mohit_va_zel_mas_b) *
+          (mosalas_mohit_va_zel_mas_s - mosalas_mohit_va_zel_mas_c);
+      var mosalas_mohit_va_zel_mas_A = sqrt(mosalas_mohit_va_zel_mas_ebarat);
 
-      var _beta;
-      if (beta.contains(".") == true) {
-        _beta = double.parse(beta);
-      } else if (beta.contains(".") == false) {
-        _beta = int.parse(beta);
-      }
-      var _gamma;
-      if (gamma.contains(".") == true) {
-        _gamma = double.parse(gamma);
-      } else if (gamma.contains(".") == false) {
-        _gamma = int.parse(gamma);
-      }
-      var motvazi_hajm_a = _a;
-      var motvazi_hajm_b = _b;
-      var motvazi_hajm_c = _c;
-      var motvazi_hajm_alfa = _alfa;
-      var motvazi_hajm_beta = _beta;
-      var motvazi_hajm_gama = _gamma;
-      var motvazi_hajm_alfa_rad = motvazi_hajm_alfa * pi / 180;
-      var motvazi_hajm_beta_rad = motvazi_hajm_beta * pi / 180;
-      var motvazi_hajm_gama_rad = motvazi_hajm_gama * pi / 180;
-      var motvazi_hajm_alfa_cos = cos(motvazi_hajm_alfa_rad);
-      var motvazi_hajm_beta_cos = cos(motvazi_hajm_beta_rad);
-      var motvazi_hajm_gama_cos = cos(motvazi_hajm_gama_rad);
-      print(motvazi_hajm_alfa);
-      print(motvazi_hajm_beta);
-      print(motvazi_hajm_gama);
-
-      print(motvazi_hajm_alfa_cos);
-      print(motvazi_hajm_beta_cos);
-      print(motvazi_hajm_gama_cos);
-      var motvazi_hajm_alfa_cos2 =
-          motvazi_hajm_alfa_cos * motvazi_hajm_alfa_cos;
-      var motvazi_hajm_beta_cos2 =
-          motvazi_hajm_beta_cos * motvazi_hajm_beta_cos;
-      var motvazi_hajm_gama_cos2 =
-          motvazi_hajm_gama_cos * motvazi_hajm_gama_cos;
-      print(motvazi_hajm_alfa_cos2);
-      print(motvazi_hajm_beta_cos2);
-      print(motvazi_hajm_gama_cos2);
-      var K = 1 +
-          2 *
-              motvazi_hajm_alfa_cos *
-              motvazi_hajm_beta_cos *
-              motvazi_hajm_gama_cos -
-          motvazi_hajm_alfa_cos2 -
-          motvazi_hajm_beta_cos2 -
-          motvazi_hajm_gama_cos2;
-      print(K);
-
-      var morvazi_hajm_radicalK = sqrt(K);
-      print(morvazi_hajm_radicalK);
-      var motvazi_hajm_V = motvazi_hajm_a *
-          motvazi_hajm_b *
-          motvazi_hajm_c *
-          morvazi_hajm_radicalK;
-      print(motvazi_hajm_V);
-
-      setState(() {
-        _result = motvazi_hajm_V.toString();
-      });
+      set_result(mosalas_mohit_va_zel_mas_A);
     } else {
-      setState(() {
-        _result = "لطفا مقادیر را وارد کنید";
-      });
+      set_error_result();
     }
   }
 
-  motvazialsotooh_hajm() {
-    double motvazi_hajm_a = 2;
-    double motvazi_hajm_b = 3;
-    double motvazi_hajm_c = 4;
-    double motvazi_hajm_alfa = 60;
-    double motvazi_hajm_beta = 30;
-    double motvazi_hajm_gama = 120;
-    //adad ha delkhahan . rasti hatman inu too net search kon kheyli jozam dare
-    //ye vakh gir nakoni to voroodia
-    double motvazi_hajm_alfa_rad = motvazi_hajm_alfa * pi / 180;
-    double motvazi_hajm_beta_rad = motvazi_hajm_beta * pi / 180;
-    double motvazi_hajm_gama_rad = motvazi_hajm_gama * pi / 180;
-    //adad haye in balaiye  delkhah nist va formoole
-    double motvazi_hajm_alfa_cos = cos(motvazi_hajm_alfa_rad);
-    double motvazi_hajm_beta_cos = cos(motvazi_hajm_beta_rad);
-    double motvazi_hajm_gama_cos = cos(motvazi_hajm_gama_rad);
-    double motvazi_hajm_alfa_cos2 =
-        motvazi_hajm_alfa_cos * motvazi_hajm_alfa_cos;
-    double motvazi_hajm_beta_cos2 =
-        motvazi_hajm_beta_cos * motvazi_hajm_beta_cos;
-    double motvazi_hajm_gama_cos2 =
-        motvazi_hajm_gama_cos * motvazi_hajm_gama_cos;
-    double K = 1 +
-        2 *
-            motvazi_hajm_alfa_cos *
-            motvazi_hajm_beta_cos *
-            motvazi_hajm_gama_cos -
-        motvazi_hajm_alfa_cos2 -
-        motvazi_hajm_beta_cos2 -
-        motvazi_hajm_gama_cos2;
+  mosalas_do_zel_va_zaviye_mas(String a, String b, String y) {
+    if (a != "" && b != "" && y != "") {
+      double mosalas_do_zel_va_zaviye_mas_a = double.parse(a);
+      double mosalas_do_zel_va_zaviye_mas_b = double.parse(b);
+      double mosalas_do_zel_va_zaviye_mas_C = double.parse(y);
+      double mosalas_do_zel_va_zaviye_mas_rad_C =
+          mosalas_do_zel_va_zaviye_mas_C * pi / 180;
+      double mosalas_do_zel_va_zaviye_mas_C_sin =
+          sin(mosalas_do_zel_va_zaviye_mas_rad_C);
+      double mosalas_do_zel_va_zaviye_mas_A = 1 /
+          2 *
+          mosalas_do_zel_va_zaviye_mas_a *
+          mosalas_do_zel_va_zaviye_mas_b *
+          mosalas_do_zel_va_zaviye_mas_C_sin;
+      set_result(mosalas_do_zel_va_zaviye_mas_A);
+    } else {
+      set_error_result();
+    }
+  }
 
-    double morvazi_hajm_radicalK = sqrt(K);
-    double motvazi_hajm_V = motvazi_hajm_a *
-        motvazi_hajm_b *
-        motvazi_hajm_c *
-        morvazi_hajm_radicalK;
-    print("hajme motevazi al sotooh :");
-    print(motvazi_hajm_V);
+  zooznanghe_mas(String a, String c, String h) {
+    if (a != "" && c != "" && h != "") {
+      double zooznanghe_mas_a = double.parse(a);
+      double zooznanghe_mas_c = double.parse(c);
+      double zooznanghe_mas_h = double.parse(h);
+      double zooznanghe_mas_A =
+          1 / 2 * (zooznanghe_mas_a + zooznanghe_mas_c) * zooznanghe_mas_h;
+      set_result(zooznanghe_mas_A);
+    } else {
+      set_error_result();
+    }
   }
 }

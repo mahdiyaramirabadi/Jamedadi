@@ -2,14 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:jamedadi/toolspages/hajm%20pages/ParallelepipedPage.dart';
-import 'package:jamedadi/toolspages/hajm%20pages/three_variable.dart';
-import 'package:jamedadi/toolspages/hajm%20pages/two_variable.dart';
-import 'package:jamedadi/toolspages/masahat%20page/TrianglePage.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/3dshapesPage.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/one_variable.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/polygonPage.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/three_variable.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/two_variable.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/TrianglePage.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'hajm pages/one_variable.dart';
-import 'package:flutter_tex/flutter_tex.dart';
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(2, 1.5),
@@ -40,79 +39,79 @@ const List<Widget> _tiles = <Widget>[
       "Rectangle",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Rechteck-ab.svg/512px-Rechteck-ab.svg.png",
       r"""\(A = ab\)""",
-      ["a", "b", "c"]),
+      ["a", "b"]),
   _itemsTile(
       "لوزی",
       "Kite",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Raute-de.svg/512px-Raute-de.svg.png",
       r"""\(A = {1 \over 2}de\)""",
-      ["B(مساحت قائده)", "h(ارتفاع)"]),
+      ["d", "e"]),
   _itemsTile(
       "متوازی الاضلع",
       "Parallelogram",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Parallelog-aha.svg/512px-Parallelog-aha.svg.png",
       r"""\(A = ah\)""",
-      ["a", "b", "c", "آلفا", "بتا", "گاما"]),
+      ["a", "h"]),
   _itemsTile(
       "ذوزنقه",
       "Trapezoid",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Trapez-abcdh.svg/512px-Trapez-abcdh.svg.png",
       r"""\(A = {(a+c)h \over 2}\)""",
-      ["a"]),
+      ["a", "c", "h"]),
   _itemsTile(
       "شش ظلعی منتظم",
       "hexagon",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hexagon-a.svg/512px-Hexagon-a.svg.png",
       r"""\(A = {3 \over 2} {\sqrt 3} a^2\)""",
-      ["r"]),
+      ["a"]),
   _itemsTile(
       "هشت ظلعی منتظم",
       "octagon",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Oktagon-a.svg/512px-Oktagon-a.svg.png",
       r"""\(A = 2(1 + {\sqrt 2})a^2\)""",
-      ["a", "b", "c"]),
+      ["a"]),
   _itemsTile(
       "چند ظلعی منتظم",
       "polygon",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Oktagon-a-r-R.svg/150px-Oktagon-a-r-R.svg.png",
-      r"""\(A = {n{ar \over 2}} = {pr \over 2} \)""",
-      ["r(شعاع قائده)", "h(ارتفاع)"]),
+      r"""\(A = {\frac {na^{2}}{4\cdot \tan(\pi /n)}}\)<br> یا \(A = {\tfrac {1}{2}}Rp\)""",
+      ["a", "n(تعداد اضلاع)"]),
   _itemsTile(
       "دایره",
       "Circle",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Kreis-r-tab.svg/512px-Kreis-r-tab.svg.png",
       r"""\(A = \pi r^2\)""",
-      ["r(شعاع قائده)", "h(ارتفاع)"]),
+      ["r"]),
   _itemsTile(
       "قطاع دایره",
       "Circular-sector",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Circle_arc.svg/512px-Circle_arc.svg.png",
       r"""\(A = {\theta \over 2}r^2 \)""",
-      ["r", "R"]),
+      ["r", "θ"]),
   _itemsTile(
       "بیضی",
       "Ellipse",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Ellipse-ab-tab.svg/512px-Ellipse-ab-tab.svg.png",
       r"""\(A = \pi ab\)""",
-      ["r", "R"]),
+      ["a", "b"]),
   _itemsTile(
       "استوانه",
       "cylinder",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Zylinder-1-tab.svg/512px-Zylinder-1-tab.svg.png",
-      r"""\(A = 2 \pi r(r+h)\)""",
-      ["r", "R"]),
+      r"""\(A = 2 \pi r(r+h)\)<br>جانبی\(A= 2 \pi rh\)""",
+      ["r", "h"]),
   _itemsTile(
       "مخروط",
       "Cone",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Kegel-1-tab.svg/512px-Kegel-1-tab.svg.png",
-      r"""\(A=\pi r(r+{\sqrt {r^{2}+h^{2}}})\)""",
-      ["r", "R"]),
+      r"""\(A=\pi r(r+{\sqrt {r^{2}+h^{2}}})\)<br>جانبی\(A= \pi rl\)<br>\(l={\sqrt {r^{2}+h^{2}}}\)""",
+      ["r", "h"]),
   _itemsTile(
       "کره",
       "Sphere",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kugel-1-tab.svg/512px-Kugel-1-tab.svg.png",
       r"""\(A = 4 \pi r^2\)""",
-      ["r", "R"]),
+      ["r"]),
 ];
 
 class Masahat_home extends StatefulWidget {
@@ -213,6 +212,53 @@ class _itemsTile extends StatelessWidget {
           if (id == "Triangle") {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => Triangle_home()));
+          } else if (id == "Rectangle" ||
+              id == "Kite" ||
+              id == "Parallelogram" ||
+              id == "Circular-sector" ||
+              id == "Ellipse") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Twovar(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint)));
+          } else if (id == "Trapezoid") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Threevar(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint)));
+          } else if (id == "hexagon" ||
+              id == "octagon" ||
+              id == "Circle" ||
+              id == "Sphere") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Onevar(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint[0])));
+          } else if (id == "Cone" || id == "cylinder") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => shapePage(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint)));
+          } else if (id == "polygon") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => PolygonPage(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint)));
           }
         },
         borderRadius: BorderRadius.circular(20),

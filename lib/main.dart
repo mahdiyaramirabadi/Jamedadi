@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:iconsax/iconsax.dart';
@@ -64,12 +65,7 @@ class _homeState extends State<home> {
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
-        leading: IconButton(
-            onPressed: () async {
-              await Share.share('ابن تست شیر جامدادی است',
-                  subject: 'Look what I made!');
-            },
-            icon: Icon(Iconsax.share, color: Theme.of(context).accentColor)),
+        leading: SizedBox(),
       ),
       body: BodyUI(context),
     );
@@ -124,40 +120,50 @@ class _homeState extends State<home> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Container(
-                  height: MediaQuery.of(context).size.height / 4,
-                  width: MediaQuery.of(context).size.width,
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                    child: Container(
-                      // decoration: BoxDecoration(
-                      //   image: DecorationImage(
-                      //     image: NetworkImage(ad_url),
-                      //   ),
-                      // ),
-                      child: Padding(
-                          padding: EdgeInsets.all(10),
-                          child: Text(
-                            "AD",
-                            style: TextStyle(
-                              color: Colors.white,
-                              shadows: <Shadow>[
-                                Shadow(
-                                  offset: Offset(0.0, 0.0),
-                                  blurRadius: 5,
-                                  color: Color.fromARGB(255, 0, 0, 0),
-                                ),
-                              ],
-                            ),
-                          )),
-                    ),
-                  ),
+
+              CachedNetworkImage(
+                imageUrl: "https://www.rodgraphic.ir/jamedadi/logo.png",
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    CircularProgressIndicator(
+                  value: downloadProgress.progress,
+                  color: Theme.of(context).primaryColor,
                 ),
-              )
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              ),
+              // Padding(
+              //   padding: EdgeInsets.only(left: 10, right: 10),
+              //   child: Container(
+              //     height: MediaQuery.of(context).size.height / 4,
+              //     width: MediaQuery.of(context).size.width,
+              //     child: Card(
+              //       shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.all(Radius.circular(30)),
+              //       ),
+              //       child: Container(
+              //         // decoration: BoxDecoration(
+              //         //   image: DecorationImage(
+              //         //     image: NetworkImage(ad_url),
+              //         //   ),
+              //         // ),
+              //         child: Padding(
+              //             padding: EdgeInsets.all(10),
+              //             child: Text(
+              //               "AD",
+              //               style: TextStyle(
+              //                 color: Colors.white,
+              //                 shadows: <Shadow>[
+              //                   Shadow(
+              //                     offset: Offset(0.0, 0.0),
+              //                     blurRadius: 5,
+              //                     color: Color.fromARGB(255, 0, 0, 0),
+              //                   ),
+              //                 ],
+              //               ),
+              //             )),
+              //       ),
+              //     ),
+              //   ),
+              // )
             ],
           ),
         ],

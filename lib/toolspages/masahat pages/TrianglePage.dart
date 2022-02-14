@@ -1,15 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:jamedadi/toolspages/hajm%20pages/ParallelepipedPage.dart';
-import 'package:jamedadi/toolspages/hajm%20pages/one_variable.dart';
-import 'package:jamedadi/toolspages/hajm%20pages/three_variable.dart';
-import 'package:jamedadi/toolspages/hajm%20pages/two_variable.dart';
-import 'package:url_launcher/url_launcher.dart';
-
-import 'package:jamedadi/toolspages/hajm%20pages/one_variable.dart';
-import 'package:flutter_tex/flutter_tex.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/three_variable.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/two_variable.dart';
+import 'package:jamedadi/toolspages/masahat%20pages/one_variable.dart';
 
 const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(2, 2),
@@ -21,25 +15,25 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
 const List<Widget> _tiles = <Widget>[
   _itemsTile(
       "مساحت با قائده و ارتفاع",
-      "Triangle",
+      "bh",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Dreieck-allg-bh.svg/512px-Dreieck-allg-bh.svg.png",
       r"""\(A = {1 \over 2}bh\)""",
-      ["a"]),
+      ["b", "h"]),
   _itemsTile(
       "مساحت با سه ظلع و محیط",
-      "Rectangle",
+      "s-abc",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Dreieck-allg.svg/512px-Dreieck-allg.svg.png",
       r"""\(A={\sqrt {s(s-a)(s-b)(s-c)}}\)""",
       ["a", "b", "c"]),
   _itemsTile(
       "مساحت با دو ضلع و زاویه بین",
-      "Kite",
+      "ab-y",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dreieck-allg-w.svg/512px-Dreieck-allg-w.svg.png",
       r"""\( A={\frac {1}{2}}ab\sin(\gamma )\)""",
-      ["B(مساحت قائده)", "h(ارتفاع)"]),
+      ["a", "b", "y"]),
   _itemsTile(
       "مساحت مثلث متساوی الاضلع",
-      "Parallelogram",
+      "a",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Dreieck-gseit.svg/512px-Dreieck-gseit.svg.png",
       r"""\(A={\frac {\sqrt {3}}{4}}a^{2}\)""",
       ["a", "b", "c", "آلفا", "بتا", "گاما"]),
@@ -124,13 +118,31 @@ class _itemsTile extends StatelessWidget {
       elevation: 0,
       child: InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => Onevar(
-                  title: name,
-                  id: id,
-                  img_url: img_url,
-                  formula: formula,
-                  textfield_hint: hint[0])));
+          if (id == "a") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Onevar(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint[0])));
+          } else if (id == "bh") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Twovar(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint)));
+          } else if (id == "s-abc" || id == "ab-y") {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => Threevar(
+                    title: name,
+                    id: id,
+                    img_url: img_url,
+                    formula: formula,
+                    textfield_hint: hint)));
+          }
         },
         borderRadius: BorderRadius.circular(20),
         child: Padding(

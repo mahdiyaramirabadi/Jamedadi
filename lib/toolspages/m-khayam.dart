@@ -35,13 +35,7 @@ class _MKhayamState extends State<MKhayam> {
             centerTitle: true,
             backgroundColor: Theme.of(context).accentColor,
             elevation: 0,
-            leading: IconButton(
-              onPressed: () {
-                _showDialog("informationContent", context);
-              },
-              icon: Icon(Iconsax.info_circle,
-                  color: Theme.of(context).primaryColor),
-            ),
+            leading: SizedBox(),
             bottom: PreferredSize(
                 child: TabBar(
                     isScrollable: false,

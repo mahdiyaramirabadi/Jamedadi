@@ -17,6 +17,7 @@ class _FisaState extends State<Fisa> {
   var z1Controller = TextEditingController();
   var z2Controller = TextEditingController();
   String _fisa_count = ":وتر";
+  String _fisa_count_btntxt = "وتر";
   String target_hint = "هدف";
   String side_hint = "ضلع یک";
   String side_hint2 = "ضلع دو";
@@ -67,12 +68,14 @@ class _FisaState extends State<Fisa> {
                         if (sidetype_list[1] == 1) {
                           side_hint = "ضلع یک";
                           side_hint2 = "ضلع دو";
-                          _fisa_count = ":ضلع";
+                          _fisa_count = ":وتر";
+                          _fisa_count_btntxt = "وتر";
                         } else if (sidetype_list[1] == 2) {
                           side_hint = "وتر";
                           side_hint2 = "ضلع یک";
 
-                          _fisa_count = ":وتر";
+                          _fisa_count = ":ضلع";
+                          _fisa_count_btntxt = "ضلع";
                         }
                       });
                     },
@@ -193,7 +196,7 @@ class _FisaState extends State<Fisa> {
                     },
                     child: Center(
                       child: Text(
-                        "محاسبه وتر",
+                        "محاسبه $_fisa_count_btntxt",
                         style: TextStyle(
                           fontFamily: "Vazir",
                           fontSize: MediaQuery.of(context).size.width / 20,

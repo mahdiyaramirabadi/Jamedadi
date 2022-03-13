@@ -170,7 +170,17 @@ class _Adad_avalState extends State<Adad_aval> {
       }
 
       /// pass any number to test whether it's prime or not
-      testPrime(int.parse(num));
+      if (int.parse(num) == 1) {
+        setState(() {
+          _AdadAval = "یک نه اول و نه مرکب است";
+        });
+      } else if (int.parse(num) == 0) {
+        setState(() {
+          _AdadAval = "(: صفر عدد عجیبیه";
+        });
+      } else {
+        testPrime(int.parse(num));
+      }
     });
   }
 }

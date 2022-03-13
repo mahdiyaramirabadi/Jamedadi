@@ -132,8 +132,9 @@ class _GhotrState extends State<Ghotr> {
     setState(() {
       int a = int.parse(azla);
       int b = a - 3;
-      int c = b * 2;
-      String e = c.toString();
+      int c = b * a;
+      int d = c ~/ 2;
+      String e = d.toString();
 
       _ghotr_count = e;
     });

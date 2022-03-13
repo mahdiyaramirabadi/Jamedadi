@@ -54,186 +54,191 @@ class _TwovarState extends State<Twovar> {
     return Builder(
       builder: (context) => Stack(
         children: [
-          Padding(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width / 10,
-                right: MediaQuery.of(context).size.width / 10,
-                top: MediaQuery.of(context).size.height / 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        width: 2.0,
-                        color: Theme.of(context).accentColor,
-                      ),
-                      color: Theme.of(context).primaryColor),
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    cursorColor: Theme.of(context).cursorColor,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.fromLTRB(10, 20, 40, 20),
-                      hintText: widget.textfield_hint[0],
-                      hintStyle:
-                          TextStyle(color: Theme.of(context).accentColor),
-                      icon: Padding(
-                        padding: EdgeInsets.only(left: 15),
-                        child: Icon(Icons.linear_scale,
-                            color: Theme.of(context).accentColor),
-                      ),
-                    ),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: "Vazir",
-                      fontSize: MediaQuery.of(context).size.width / 20,
-                      color: Theme.of(context).accentColor,
-                    ),
-                    controller: value1Controller,
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 22,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        width: 2.0,
-                        color: Theme.of(context).accentColor,
-                      ),
-                      color: Theme.of(context).primaryColor),
-                  child: TextField(
-                    keyboardType: TextInputType.number,
-                    cursorColor: Theme.of(context).cursorColor,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.fromLTRB(10, 20, 40, 20),
-                      hintText: widget.textfield_hint[1],
-                      hintStyle:
-                          TextStyle(color: Theme.of(context).accentColor),
-                      icon: Padding(
-                        padding: EdgeInsets.only(left: 15),
-                        child: Icon(Icons.linear_scale,
-                            color: Theme.of(context).accentColor),
-                      ),
-                    ),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: "Vazir",
-                      fontSize: MediaQuery.of(context).size.width / 20,
-                      color: Theme.of(context).accentColor,
-                    ),
-                    controller: value2Controller,
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 22,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        width: 2.0,
-                        color: Theme.of(context).accentColor,
-                      ),
-                      color: Theme.of(context).accentColor),
-                  height: MediaQuery.of(context).size.height / 13,
-                  child: InkWell(
-                    onTap: () {
-                      if (widget.id == "Prism") {
-                        Prism_hajm(
-                            value1Controller.text, value2Controller.text);
-                      } else if (widget.id == "Pyramid") {
-                        Pyramid_hajm(
-                            value1Controller.text, value2Controller.text);
-                      } else if (widget.id == "Circular-Cylinder") {
-                        Circular_Cylinder_hajm(
-                            value1Controller.text, value2Controller.text);
-                      } else if (widget.id == "Cone") {
-                        Cone_hajm(value1Controller.text, value2Controller.text);
-                      } else if (widget.id == "Solid-torus") {
-                        Solid_torus_hajm(
-                            value1Controller.text, value2Controller.text);
-                      }
-                    },
-                    child: Center(
-                      child: Text(
-                        "محاسبه",
+          Positioned.fill(
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width / 10,
+                    right: MediaQuery.of(context).size.width / 10,
+                    top: MediaQuery.of(context).size.height / 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            width: 2.0,
+                            color: Theme.of(context).accentColor,
+                          ),
+                          color: Theme.of(context).primaryColor),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        cursorColor: Theme.of(context).cursorColor,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.fromLTRB(10, 20, 40, 20),
+                          hintText: widget.textfield_hint[0],
+                          hintStyle:
+                              TextStyle(color: Theme.of(context).accentColor),
+                          icon: Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Icon(Icons.linear_scale,
+                                color: Theme.of(context).accentColor),
+                          ),
+                        ),
+                        textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: "Vazir",
                           fontSize: MediaQuery.of(context).size.width / 20,
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).accentColor,
+                        ),
+                        controller: value1Controller,
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 22,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            width: 2.0,
+                            color: Theme.of(context).accentColor,
+                          ),
+                          color: Theme.of(context).primaryColor),
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        cursorColor: Theme.of(context).cursorColor,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          contentPadding: EdgeInsets.fromLTRB(10, 20, 40, 20),
+                          hintText: widget.textfield_hint[1],
+                          hintStyle:
+                              TextStyle(color: Theme.of(context).accentColor),
+                          icon: Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Icon(Icons.linear_scale,
+                                color: Theme.of(context).accentColor),
+                          ),
+                        ),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: "Vazir",
+                          fontSize: MediaQuery.of(context).size.width / 20,
+                          color: Theme.of(context).accentColor,
+                        ),
+                        controller: value2Controller,
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 22,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          border: Border.all(
+                            width: 2.0,
+                            color: Theme.of(context).accentColor,
+                          ),
+                          color: Theme.of(context).accentColor),
+                      height: MediaQuery.of(context).size.height / 13,
+                      child: InkWell(
+                        onTap: () {
+                          if (widget.id == "Prism") {
+                            Prism_hajm(
+                                value1Controller.text, value2Controller.text);
+                          } else if (widget.id == "Pyramid") {
+                            Pyramid_hajm(
+                                value1Controller.text, value2Controller.text);
+                          } else if (widget.id == "Circular-Cylinder") {
+                            Circular_Cylinder_hajm(
+                                value1Controller.text, value2Controller.text);
+                          } else if (widget.id == "Cone") {
+                            Cone_hajm(
+                                value1Controller.text, value2Controller.text);
+                          } else if (widget.id == "Solid-torus") {
+                            Solid_torus_hajm(
+                                value1Controller.text, value2Controller.text);
+                          }
+                        },
+                        child: Center(
+                          child: Text(
+                            "محاسبه",
+                            style: TextStyle(
+                              fontFamily: "Vazir",
+                              fontSize: MediaQuery.of(context).size.width / 20,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 20,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        width: 2.0,
-                        color: Theme.of(context).accentColor,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 20,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            width: 2.0,
+                            color: Theme.of(context).accentColor,
+                          ),
+                          color: Theme.of(context).backgroundColor),
+                      height: MediaQuery.of(context).size.height / 10,
+                      width: MediaQuery.of(context).size.width,
+                      child: Center(
+                        child: Text(_result,
+                            style: TextStyle(
+                              fontFamily: "Vazir",
+                              fontSize: MediaQuery.of(context).size.width / 18,
+                              color: Theme.of(context).hintColor,
+                            )),
                       ),
-                      color: Theme.of(context).backgroundColor),
-                  height: MediaQuery.of(context).size.height / 10,
-                  width: MediaQuery.of(context).size.width,
-                  child: Center(
-                    child: Text(_result,
-                        style: TextStyle(
-                            fontFamily: "Vazir",
-                            fontSize: MediaQuery.of(context).size.width / 18,
-                            color: Theme.of(context).hintColor,
-                            decoration: TextDecoration.underline)),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 20,
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height / 5,
-                  width: MediaQuery.of(context).size.width,
-                  child: CachedNetworkImage(
-                    imageUrl: widget.img_url,
-                    progressIndicatorBuilder:
-                        (context, url, downloadProgress) =>
-                            CircularProgressIndicator(
-                      value: downloadProgress.progress,
-                      color: Theme.of(context).accentColor,
                     ),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height / 20,
-                ),
-                Expanded(
-                  child: TeXView(
-                    fonts: [
-                      TeXViewFont(fontFamily: 'Vazir', src: 'fonts/vazir.ttf'),
-                    ],
-                    child: TeXViewContainer(
-                      child: TeXViewDocument(widget.formula,
-                          style: TeXViewStyle(
-                              backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-                              textAlign: TeXViewTextAlign.Center,
-                              fontStyle:
-                                  TeXViewFontStyle(fontFamily: "Vazir"))),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 20,
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height / 5,
+                      width: MediaQuery.of(context).size.width,
+                      child: CachedNetworkImage(
+                        imageUrl: widget.img_url,
+                        progressIndicatorBuilder:
+                            (context, url, downloadProgress) =>
+                                CircularProgressIndicator(
+                          value: downloadProgress.progress,
+                          color: Theme.of(context).accentColor,
+                        ),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 20,
+                    ),
+                    TeXView(
+                      fonts: [
+                        TeXViewFont(
+                            fontFamily: 'Vazir', src: 'fonts/vazir.ttf'),
+                      ],
+                      child: TeXViewContainer(
+                        child: TeXViewDocument(widget.formula,
+                            style: TeXViewStyle(
+                                backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                                textAlign: TeXViewTextAlign.Center,
+                                fontStyle:
+                                    TeXViewFontStyle(fontFamily: "Vazir"))),
+                        style: TeXViewStyle(
+                            backgroundColor: Theme.of(context).backgroundColor),
+                      ),
                       style: TeXViewStyle(
-                          backgroundColor: Theme.of(context).backgroundColor),
+                          backgroundColor: Color.fromRGBO(0, 0, 0, 0)),
                     ),
-                    style: TeXViewStyle(
-                        backgroundColor: Color.fromRGBO(0, 0, 0, 0)),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ],

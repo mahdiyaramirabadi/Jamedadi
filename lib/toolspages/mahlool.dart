@@ -70,234 +70,299 @@ class _MahloolState extends State<Mahlool> {
           ),
           body: TabBarView(
             children: <Widget>[
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width / 10,
-                            right: MediaQuery.of(context).size.width / 10,
-                            top: MediaQuery.of(context).size.height / 20),
-                        child: ListView(children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    color: Theme.of(context).primaryColor),
-                                child: Expanded(
-                                  child: TextField(
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.allow(
-                                          RegExp(r'[0-9,.]')),
-                                    ],
-                                    keyboardType: TextInputType.number,
-                                    cursorColor: Theme.of(context).cursorColor,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      contentPadding:
-                                          EdgeInsets.fromLTRB(10, 20, 40, 20),
-                                      hintText: "جرم",
-                                      hintStyle: TextStyle(
-                                          color: Theme.of(context).accentColor),
-                                      icon: Padding(
-                                        padding: EdgeInsets.only(left: 15),
-                                        child: Icon(Icons.circle,
-                                            color:
-                                                Theme.of(context).accentColor),
-                                      ),
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontFamily: "Vazir",
-                                      fontSize:
-                                          MediaQuery.of(context).size.width /
-                                              20,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    controller: gController,
-                                  ),
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width / 10,
+                          right: MediaQuery.of(context).size.width / 10,
+                          top: MediaQuery.of(context).size.height / 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
                                 ),
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 50,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    color: Theme.of(context).primaryColor),
-                                child: TextField(
-                                  inputFormatters: [
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp(r'[0-9,.]')),
-                                  ],
-                                  keyboardType: TextInputType.number,
-                                  cursorColor: Theme.of(context).cursorColor,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding:
-                                        EdgeInsets.fromLTRB(10, 20, 40, 20),
-                                    hintText: "انحلال پذیری در دمای کمتر",
-                                    hintStyle: TextStyle(
-                                        color: Theme.of(context).accentColor,
-                                        fontSize: 16),
-                                    icon: Padding(
-                                      padding: EdgeInsets.only(left: 15),
-                                      child: Icon(Icons.circle,
-                                          color: Theme.of(context).accentColor),
-                                    ),
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontFamily: "Vazir",
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 20,
-                                    color: Theme.of(context).accentColor,
-                                  ),
-                                  controller: s1Controller,
-                                ),
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 50,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    color: Theme.of(context).primaryColor),
-                                child: TextField(
-                                  inputFormatters: [
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp(r'[0-9,.]')),
-                                  ],
-                                  keyboardType: TextInputType.number,
-                                  cursorColor: Theme.of(context).cursorColor,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding:
-                                        EdgeInsets.fromLTRB(10, 20, 40, 20),
-                                    hintText: "انحلال پذیری در دمای بیشتر",
-                                    hintStyle: TextStyle(
-                                        color: Theme.of(context).accentColor,
-                                        fontSize: 16),
-                                    icon: Padding(
-                                      padding: EdgeInsets.only(left: 15),
-                                      child: Icon(Icons.circle,
-                                          color: Theme.of(context).accentColor),
-                                    ),
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontFamily: "Vazir",
-                                    fontSize:
-                                        MediaQuery.of(context).size.width / 20,
-                                    color: Theme.of(context).accentColor,
-                                  ),
-                                  controller: s2Controller,
-                                ),
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 22,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
+                                color: Theme.of(context).primaryColor),
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              cursorColor: Theme.of(context).cursorColor,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 20, 40, 20),
+                                hintText: "جرم",
+                                hintStyle: TextStyle(
                                     color: Theme.of(context).accentColor),
-                                height: MediaQuery.of(context).size.height / 13,
-                                width: MediaQuery.of(context).size.width,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(40),
-                                  onTap: () {
-                                    rosoob_calc(gController.text,
-                                        s1Controller.text, s2Controller.text);
-                                  },
-                                  child: Center(
-                                    child: Text(
-                                      "محاسبه",
-                                      style: TextStyle(
-                                        fontFamily: "Vazir",
-                                        fontSize:
-                                            MediaQuery.of(context).size.width /
-                                                20,
-                                        color: Theme.of(context).primaryColor,
-                                      ),
-                                    ),
-                                  ),
+                                icon: Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Icon(Icons.circle,
+                                      color: Theme.of(context).accentColor),
                                 ),
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 20,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Vazir",
+                                fontSize:
+                                    MediaQuery.of(context).size.width / 20,
+                                color: Theme.of(context).accentColor,
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    color: Theme.of(context).backgroundColor),
-                                height: MediaQuery.of(context).size.height / 10,
-                                width: MediaQuery.of(context).size.width,
-                                child: Center(
-                                  child: Text(
-                                    _rosoob_count,
-                                    style: TextStyle(
-                                      fontFamily: "Vazir",
-                                      fontSize:
-                                          MediaQuery.of(context).size.width /
-                                              18,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                              controller: gController,
+                            ),
                           ),
-                        ]),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 50,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).primaryColor),
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              cursorColor: Theme.of(context).cursorColor,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 20, 40, 20),
+                                hintText: "انحلال پذیری در دمای کمتر",
+                                hintStyle: TextStyle(
+                                    color: Theme.of(context).accentColor,
+                                    fontSize: 15),
+                                icon: Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Icon(Icons.circle,
+                                      color: Theme.of(context).accentColor),
+                                ),
+                              ),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Vazir",
+                                fontSize:
+                                    MediaQuery.of(context).size.width / 20,
+                                color: Theme.of(context).accentColor,
+                              ),
+                              controller: s1Controller,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 50,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).primaryColor),
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              cursorColor: Theme.of(context).cursorColor,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 20, 40, 20),
+                                hintText: "انحلال پذیری در دمای بیشتر",
+                                hintStyle: TextStyle(
+                                    color: Theme.of(context).accentColor,
+                                    fontSize: 15),
+                                icon: Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Icon(Icons.circle,
+                                      color: Theme.of(context).accentColor),
+                                ),
+                              ),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Vazir",
+                                fontSize:
+                                    MediaQuery.of(context).size.width / 20,
+                                color: Theme.of(context).accentColor,
+                              ),
+                              controller: s2Controller,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 22,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).accentColor),
+                            height: MediaQuery.of(context).size.height / 13,
+                            width: MediaQuery.of(context).size.width,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(40),
+                              onTap: () {
+                                rosoob_calc(gController.text, s1Controller.text,
+                                    s2Controller.text);
+                              },
+                              child: Center(
+                                child: Text(
+                                  "محاسبه",
+                                  style: TextStyle(
+                                    fontFamily: "Vazir",
+                                    fontSize:
+                                        MediaQuery.of(context).size.width / 20,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 20,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).backgroundColor),
+                            height: MediaQuery.of(context).size.height / 10,
+                            width: MediaQuery.of(context).size.width,
+                            child: Center(
+                              child: Text(
+                                _rosoob_count,
+                                style: TextStyle(
+                                  fontFamily: "Vazir",
+                                  fontSize:
+                                      MediaQuery.of(context).size.width / 18,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor,
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width / 10,
-                            right: MediaQuery.of(context).size.width / 10,
-                            top: MediaQuery.of(context).size.height / 20),
-                        child: ListView(children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width / 10,
+                          right: MediaQuery.of(context).size.width / 10,
+                          top: MediaQuery.of(context).size.height / 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).primaryColor),
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              cursorColor: Theme.of(context).cursorColor,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 20, 40, 20),
+                                hintText: "حل شونده",
+                                hintStyle: TextStyle(
+                                    color: Theme.of(context).accentColor),
+                                icon: Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Icon(Icons.circle,
+                                      color: Theme.of(context).accentColor),
+                                ),
+                              ),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Vazir",
+                                fontSize:
+                                    MediaQuery.of(context).size.width / 20,
+                                color: Theme.of(context).accentColor,
+                              ),
+                              controller: halshController,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 50,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).primaryColor),
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              cursorColor: Theme.of(context).cursorColor,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                contentPadding:
+                                    EdgeInsets.fromLTRB(10, 20, 40, 20),
+                                hintText: "حلال",
+                                hintStyle: TextStyle(
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                icon: Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Icon(Icons.circle,
+                                      color: Theme.of(context).accentColor),
+                                ),
+                              ),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Vazir",
+                                fontSize:
+                                    MediaQuery.of(context).size.width / 20,
+                                color: Theme.of(context).accentColor,
+                              ),
+                              controller: halalController,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 50,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: MediaQuery.of(context).size.height / 16,
+                            child: InkWell(
+                              onTap: () async {
+                                await showCupertinoModalBottomSheet(
+                                  expand: false,
+                                  context: context,
+                                  backgroundColor: Colors.transparent,
+                                  builder: (context) => vahedmodal(),
+                                  topRadius: Radius.circular(20),
+                                  elevation: 10,
+                                  duration: Duration(milliseconds: 950),
+                                  animationCurve: Curves.easeInOut,
+                                  barrierColor: Color.fromRGBO(0, 0, 0, .8),
+                                );
+                                setState(() {
+                                  vahed_hint = vahed_list[0];
+                                });
+                              },
+                              child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15),
                                     border: Border.all(
@@ -305,29 +370,9 @@ class _MahloolState extends State<Mahlool> {
                                       color: Theme.of(context).accentColor,
                                     ),
                                     color: Theme.of(context).primaryColor),
-                                child: Expanded(
-                                  child: TextField(
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.allow(
-                                          RegExp(r'[0-9,.]')),
-                                    ],
-                                    keyboardType: TextInputType.number,
-                                    cursorColor: Theme.of(context).cursorColor,
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      contentPadding:
-                                          EdgeInsets.fromLTRB(10, 20, 40, 20),
-                                      hintText: "حل شونده",
-                                      hintStyle: TextStyle(
-                                          color: Theme.of(context).accentColor),
-                                      icon: Padding(
-                                        padding: EdgeInsets.only(left: 15),
-                                        child: Icon(Icons.circle,
-                                            color:
-                                                Theme.of(context).accentColor),
-                                      ),
-                                    ),
-                                    textAlign: TextAlign.center,
+                                child: Center(
+                                  child: Text(
+                                    vahed_hint,
                                     style: TextStyle(
                                       fontFamily: "Vazir",
                                       fontSize:
@@ -335,164 +380,72 @@ class _MahloolState extends State<Mahlool> {
                                               20,
                                       color: Theme.of(context).accentColor,
                                     ),
-                                    controller: halshController,
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 50,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    color: Theme.of(context).primaryColor),
-                                child: TextField(
-                                  inputFormatters: [
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp(r'[0-9,.]')),
-                                  ],
-                                  keyboardType: TextInputType.number,
-                                  cursorColor: Theme.of(context).cursorColor,
-                                  decoration: InputDecoration(
-                                    border: InputBorder.none,
-                                    contentPadding:
-                                        EdgeInsets.fromLTRB(10, 20, 40, 20),
-                                    hintText: "حلال",
-                                    hintStyle: TextStyle(
-                                        color: Theme.of(context).accentColor,
-                                        fontSize: 16),
-                                    icon: Padding(
-                                      padding: EdgeInsets.only(left: 15),
-                                      child: Icon(Icons.circle,
-                                          color: Theme.of(context).accentColor),
-                                    ),
-                                  ),
-                                  textAlign: TextAlign.center,
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 22,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).accentColor),
+                            height: MediaQuery.of(context).size.height / 13,
+                            width: MediaQuery.of(context).size.width,
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(40),
+                              onTap: () {
+                                ghelzat(
+                                    halshController.text, halalController.text);
+                              },
+                              child: Center(
+                                child: Text(
+                                  "محاسبه",
                                   style: TextStyle(
                                     fontFamily: "Vazir",
                                     fontSize:
                                         MediaQuery.of(context).size.width / 20,
-                                    color: Theme.of(context).accentColor,
-                                  ),
-                                  controller: halalController,
-                                ),
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 50,
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width,
-                                height: MediaQuery.of(context).size.height / 16,
-                                child: InkWell(
-                                  onTap: () async {
-                                    await showCupertinoModalBottomSheet(
-                                      expand: false,
-                                      context: context,
-                                      backgroundColor: Colors.transparent,
-                                      builder: (context) => vahedmodal(),
-                                      topRadius: Radius.circular(20),
-                                      elevation: 10,
-                                      duration: Duration(milliseconds: 950),
-                                      animationCurve: Curves.easeInOut,
-                                      barrierColor: Color.fromRGBO(0, 0, 0, .8),
-                                    );
-                                    setState(() {
-                                      vahed_hint = vahed_list[0];
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(
-                                          width: 2.0,
-                                          color: Theme.of(context).accentColor,
-                                        ),
-                                        color: Theme.of(context).primaryColor),
-                                    child: Center(
-                                      child: Text(
-                                        vahed_hint,
-                                        style: TextStyle(
-                                          fontFamily: "Vazir",
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              20,
-                                          color: Theme.of(context).accentColor,
-                                        ),
-                                      ),
-                                    ),
+                                    color: Theme.of(context).primaryColor,
                                   ),
                                 ),
                               ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 22,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    color: Theme.of(context).accentColor),
-                                height: MediaQuery.of(context).size.height / 13,
-                                width: MediaQuery.of(context).size.width,
-                                child: InkWell(
-                                  borderRadius: BorderRadius.circular(40),
-                                  onTap: () {
-                                    ghelzat(halshController.text,
-                                        halalController.text);
-                                  },
-                                  child: Center(
-                                    child: Text(
-                                      "محاسبه",
-                                      style: TextStyle(
-                                        fontFamily: "Vazir",
-                                        fontSize:
-                                            MediaQuery.of(context).size.width /
-                                                20,
-                                        color: Theme.of(context).primaryColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height / 20,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                    color: Theme.of(context).backgroundColor),
-                                height: MediaQuery.of(context).size.height / 10,
-                                width: MediaQuery.of(context).size.width,
-                                child: Center(
-                                  child: Text(
-                                    _ghelzat_count,
-                                    style: TextStyle(
-                                      fontFamily: "Vazir",
-                                      fontSize:
-                                          MediaQuery.of(context).size.width /
-                                              18,
-                                      color: Theme.of(context).accentColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                        ]),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height / 20,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(
+                                  width: 2.0,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                                color: Theme.of(context).backgroundColor),
+                            height: MediaQuery.of(context).size.height / 10,
+                            width: MediaQuery.of(context).size.width,
+                            child: Center(
+                              child: Text(
+                                _ghelzat_count,
+                                style: TextStyle(
+                                  fontFamily: "Vazir",
+                                  fontSize:
+                                      MediaQuery.of(context).size.width / 18,
+                                  color: Theme.of(context).accentColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
             ],
@@ -594,3 +547,411 @@ class _MahloolState extends State<Mahlool> {
   //   });
   // }
 }
+// Container(
+//                 decoration: BoxDecoration(
+//                   color: Theme.of(context).backgroundColor,
+//                 ),
+//                 child: Positioned.fill(
+//                   child: Padding(
+//                     padding: EdgeInsets.only(
+//                         left: MediaQuery.of(context).size.width / 10,
+//                         right: MediaQuery.of(context).size.width / 10,
+//                         top: MediaQuery.of(context).size.height / 20),
+//                     child: ListView(children: [
+//                       Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).primaryColor),
+//                             child: Expanded(
+//                               child: TextField(
+//                                 inputFormatters: [
+//                                   FilteringTextInputFormatter.allow(
+//                                       RegExp(r'[0-9,.]')),
+//                                 ],
+//                                 keyboardType: TextInputType.number,
+//                                 cursorColor: Theme.of(context).cursorColor,
+//                                 decoration: InputDecoration(
+//                                   border: InputBorder.none,
+//                                   contentPadding:
+//                                       EdgeInsets.fromLTRB(10, 20, 40, 20),
+//                                   hintText: "جرم",
+//                                   hintStyle: TextStyle(
+//                                       color: Theme.of(context).accentColor),
+//                                   icon: Padding(
+//                                     padding: EdgeInsets.only(left: 15),
+//                                     child: Icon(Icons.circle,
+//                                         color: Theme.of(context).accentColor),
+//                                   ),
+//                                 ),
+//                                 textAlign: TextAlign.center,
+//                                 style: TextStyle(
+//                                   fontFamily: "Vazir",
+//                                   fontSize:
+//                                       MediaQuery.of(context).size.width / 20,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 controller: gController,
+//                               ),
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 50,
+//                           ),
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).primaryColor),
+//                             child: TextField(
+//                               inputFormatters: [
+//                                 FilteringTextInputFormatter.allow(
+//                                     RegExp(r'[0-9,.]')),
+//                               ],
+//                               keyboardType: TextInputType.number,
+//                               cursorColor: Theme.of(context).cursorColor,
+//                               decoration: InputDecoration(
+//                                 border: InputBorder.none,
+//                                 contentPadding:
+//                                     EdgeInsets.fromLTRB(10, 20, 40, 20),
+//                                 hintText: "انحلال پذیری در دمای کمتر",
+//                                 hintStyle: TextStyle(
+//                                     color: Theme.of(context).accentColor,
+//                                     fontSize: 16),
+//                                 icon: Padding(
+//                                   padding: EdgeInsets.only(left: 15),
+//                                   child: Icon(Icons.circle,
+//                                       color: Theme.of(context).accentColor),
+//                                 ),
+//                               ),
+//                               textAlign: TextAlign.center,
+//                               style: TextStyle(
+//                                 fontFamily: "Vazir",
+//                                 fontSize:
+//                                     MediaQuery.of(context).size.width / 20,
+//                                 color: Theme.of(context).accentColor,
+//                               ),
+//                               controller: s1Controller,
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 50,
+//                           ),
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).primaryColor),
+//                             child: TextField(
+//                               inputFormatters: [
+//                                 FilteringTextInputFormatter.allow(
+//                                     RegExp(r'[0-9,.]')),
+//                               ],
+//                               keyboardType: TextInputType.number,
+//                               cursorColor: Theme.of(context).cursorColor,
+//                               decoration: InputDecoration(
+//                                 border: InputBorder.none,
+//                                 contentPadding:
+//                                     EdgeInsets.fromLTRB(10, 20, 40, 20),
+//                                 hintText: "انحلال پذیری در دمای بیشتر",
+//                                 hintStyle: TextStyle(
+//                                     color: Theme.of(context).accentColor,
+//                                     fontSize: 16),
+//                                 icon: Padding(
+//                                   padding: EdgeInsets.only(left: 15),
+//                                   child: Icon(Icons.circle,
+//                                       color: Theme.of(context).accentColor),
+//                                 ),
+//                               ),
+//                               textAlign: TextAlign.center,
+//                               style: TextStyle(
+//                                 fontFamily: "Vazir",
+//                                 fontSize:
+//                                     MediaQuery.of(context).size.width / 20,
+//                                 color: Theme.of(context).accentColor,
+//                               ),
+//                               controller: s2Controller,
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 22,
+//                           ),
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).accentColor),
+//                             height: MediaQuery.of(context).size.height / 13,
+//                             width: MediaQuery.of(context).size.width,
+//                             child: InkWell(
+//                               borderRadius: BorderRadius.circular(40),
+//                               onTap: () {
+//                                 rosoob_calc(gController.text, s1Controller.text,
+//                                     s2Controller.text);
+//                               },
+//                               child: Center(
+//                                 child: Text(
+//                                   "محاسبه",
+//                                   style: TextStyle(
+//                                     fontFamily: "Vazir",
+//                                     fontSize:
+//                                         MediaQuery.of(context).size.width / 20,
+//                                     color: Theme.of(context).primaryColor,
+//                                   ),
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 20,
+//                           ),
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).backgroundColor),
+//                             height: MediaQuery.of(context).size.height / 10,
+//                             width: MediaQuery.of(context).size.width,
+//                             child: Center(
+//                               child: Text(
+//                                 _rosoob_count,
+//                                 style: TextStyle(
+//                                   fontFamily: "Vazir",
+//                                   fontSize:
+//                                       MediaQuery.of(context).size.width / 18,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ]),
+//                   ),
+//                 ),
+//               ),
+//               Container(
+//                 decoration: BoxDecoration(
+//                   color: Theme.of(context).backgroundColor,
+//                 ),
+//                 child: Positioned.fill(
+//                   child: Padding(
+//                     padding: EdgeInsets.only(
+//                         left: MediaQuery.of(context).size.width / 10,
+//                         right: MediaQuery.of(context).size.width / 10,
+//                         top: MediaQuery.of(context).size.height / 20),
+//                     child: ListView(children: [
+//                       Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).primaryColor),
+//                             child: Expanded(
+//                               child: TextField(
+//                                 inputFormatters: [
+//                                   FilteringTextInputFormatter.allow(
+//                                       RegExp(r'[0-9,.]')),
+//                                 ],
+//                                 keyboardType: TextInputType.number,
+//                                 cursorColor: Theme.of(context).cursorColor,
+//                                 decoration: InputDecoration(
+//                                   border: InputBorder.none,
+//                                   contentPadding:
+//                                       EdgeInsets.fromLTRB(10, 20, 40, 20),
+//                                   hintText: "حل شونده",
+//                                   hintStyle: TextStyle(
+//                                       color: Theme.of(context).accentColor),
+//                                   icon: Padding(
+//                                     padding: EdgeInsets.only(left: 15),
+//                                     child: Icon(Icons.circle,
+//                                         color: Theme.of(context).accentColor),
+//                                   ),
+//                                 ),
+//                                 textAlign: TextAlign.center,
+//                                 style: TextStyle(
+//                                   fontFamily: "Vazir",
+//                                   fontSize:
+//                                       MediaQuery.of(context).size.width / 20,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 controller: halshController,
+//                               ),
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 50,
+//                           ),
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).primaryColor),
+//                             child: TextField(
+//                               inputFormatters: [
+//                                 FilteringTextInputFormatter.allow(
+//                                     RegExp(r'[0-9,.]')),
+//                               ],
+//                               keyboardType: TextInputType.number,
+//                               cursorColor: Theme.of(context).cursorColor,
+//                               decoration: InputDecoration(
+//                                 border: InputBorder.none,
+//                                 contentPadding:
+//                                     EdgeInsets.fromLTRB(10, 20, 40, 20),
+//                                 hintText: "حلال",
+//                                 hintStyle: TextStyle(
+//                                     color: Theme.of(context).accentColor,
+//                                     fontSize: 16),
+//                                 icon: Padding(
+//                                   padding: EdgeInsets.only(left: 15),
+//                                   child: Icon(Icons.circle,
+//                                       color: Theme.of(context).accentColor),
+//                                 ),
+//                               ),
+//                               textAlign: TextAlign.center,
+//                               style: TextStyle(
+//                                 fontFamily: "Vazir",
+//                                 fontSize:
+//                                     MediaQuery.of(context).size.width / 20,
+//                                 color: Theme.of(context).accentColor,
+//                               ),
+//                               controller: halalController,
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 50,
+//                           ),
+//                           Container(
+//                             width: MediaQuery.of(context).size.width,
+//                             height: MediaQuery.of(context).size.height / 16,
+//                             child: InkWell(
+//                               onTap: () async {
+//                                 await showCupertinoModalBottomSheet(
+//                                   expand: false,
+//                                   context: context,
+//                                   backgroundColor: Colors.transparent,
+//                                   builder: (context) => vahedmodal(),
+//                                   topRadius: Radius.circular(20),
+//                                   elevation: 10,
+//                                   duration: Duration(milliseconds: 950),
+//                                   animationCurve: Curves.easeInOut,
+//                                   barrierColor: Color.fromRGBO(0, 0, 0, .8),
+//                                 );
+//                                 setState(() {
+//                                   vahed_hint = vahed_list[0];
+//                                 });
+//                               },
+//                               child: Container(
+//                                 decoration: BoxDecoration(
+//                                     borderRadius: BorderRadius.circular(15),
+//                                     border: Border.all(
+//                                       width: 2.0,
+//                                       color: Theme.of(context).accentColor,
+//                                     ),
+//                                     color: Theme.of(context).primaryColor),
+//                                 child: Center(
+//                                   child: Text(
+//                                     vahed_hint,
+//                                     style: TextStyle(
+//                                       fontFamily: "Vazir",
+//                                       fontSize:
+//                                           MediaQuery.of(context).size.width /
+//                                               20,
+//                                       color: Theme.of(context).accentColor,
+//                                     ),
+//                                   ),
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 22,
+//                           ),
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).accentColor),
+//                             height: MediaQuery.of(context).size.height / 13,
+//                             width: MediaQuery.of(context).size.width,
+//                             child: InkWell(
+//                               borderRadius: BorderRadius.circular(40),
+//                               onTap: () {
+//                                 ghelzat(
+//                                     halshController.text, halalController.text);
+//                               },
+//                               child: Center(
+//                                 child: Text(
+//                                   "محاسبه",
+//                                   style: TextStyle(
+//                                     fontFamily: "Vazir",
+//                                     fontSize:
+//                                         MediaQuery.of(context).size.width / 20,
+//                                     color: Theme.of(context).primaryColor,
+//                                   ),
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                           SizedBox(
+//                             height: MediaQuery.of(context).size.height / 20,
+//                           ),
+//                           Container(
+//                             decoration: BoxDecoration(
+//                                 borderRadius: BorderRadius.circular(15),
+//                                 border: Border.all(
+//                                   width: 2.0,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                                 color: Theme.of(context).backgroundColor),
+//                             height: MediaQuery.of(context).size.height / 10,
+//                             width: MediaQuery.of(context).size.width,
+//                             child: Center(
+//                               child: Text(
+//                                 _ghelzat_count,
+//                                 style: TextStyle(
+//                                   fontFamily: "Vazir",
+//                                   fontSize:
+//                                       MediaQuery.of(context).size.width / 18,
+//                                   color: Theme.of(context).accentColor,
+//                                 ),
+//                               ),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     ]),
+//                   ),
+//                 ),
+//               ),

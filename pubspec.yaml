@@ -25,6 +25,9 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  sqflite:
+  path:
+  path_provider:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -50,11 +53,16 @@ dependencies:
   cached_network_image: ^3.2.0
   share_plus: ^3.0.4
   flutter_tex: ^4.0.3+1
-  
+  curved_navigation_bar: ^1.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
+  flutter_launcher_icons: "^0.9.2"
+ 
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -69,6 +77,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/dict.db
     - assets/tools.json
     - assets/img/backtools/tile170.png
     - assets/img/backtools/tile350.png

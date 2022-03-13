@@ -132,7 +132,7 @@ class _fiboState extends State<fibo> {
 
       f(int a) {
         if (a == 0) {
-          numbers.add("ورودی باید عددی صحیح باشد");
+          numbers.add("ورودی باید عددی طبیعی باشد");
           ;
         } else if (a == 1) {
           numbers.add(1);
@@ -154,6 +154,7 @@ class _fiboState extends State<fibo> {
       }
 
       f(int.parse(max));
+      numbers.removeLast();
       print(numbers);
     });
   }

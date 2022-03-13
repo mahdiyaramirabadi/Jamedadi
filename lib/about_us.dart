@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'BottomNavigator.dart';
 
 class AboutUsPage extends StatefulWidget {
@@ -30,7 +31,13 @@ class _AboutUsPageState extends State<AboutUsPage> {
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
         elevation: 0,
-        leading: Icon(Icons.ios_share, color: Theme.of(context).accentColor),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop(true);
+          },
+          icon:
+              Icon(Iconsax.arrow_left_2, color: Theme.of(context).accentColor),
+        ),
       ),
       body: BodyUI(),
     );
@@ -107,7 +114,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
             height: 50,
             child: Padding(
                 padding: EdgeInsets.only(bottom: 15, top: 10),
-                child: Text("جامدادی نسخه 0.1")),
+                child: Text("جامدادی نسخه 1.0")),
           ),
         )
       ],

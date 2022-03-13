@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jamedadi/Samplequestions.dart';
 import 'package:jamedadi/Theme_Provider.dart';
+import 'package:jamedadi/dictionary.dart';
 import 'package:jamedadi/lesson.dart';
 import 'package:jamedadi/settingspage.dart';
 import 'package:page_transition/page_transition.dart';
@@ -14,6 +18,10 @@ import 'tools.dart';
 import 'package:share_plus/share_plus.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.blue, // navigation bar color
+    statusBarColor: Color.fromRGBO(0, 0, 0, 0), // status bar color
+  ));
   return runApp(MyApp());
 }
 
@@ -55,26 +63,22 @@ class _homeState extends State<home> {
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
-        title: Text(
-          "جامدادی",
-          style: TextStyle(
-            fontFamily: "Vazir",
-            color: Theme.of(context).accentColor,
+          title: Text(
+            "جامدادی",
+            style: TextStyle(
+              fontFamily: "Vazir",
+              color: Theme.of(context).accentColor,
+            ),
           ),
-        ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
-        elevation: 0,
-        leading: SizedBox(),
-      ),
+          centerTitle: true,
+          backgroundColor: Theme.of(context).primaryColor,
+          elevation: 0,
+          leading: SizedBox()),
       body: BodyUI(context),
     );
   }
 
   Widget BodyUI(context) {
-    String ad_url =
-        "https://click.digiato.com/media/1acaf85b1785aec313667b8e3654164f-3b26571911b67ee2f2757419e75213a3-2ec8a245f522e5147a440685adf1e499-c41a106fa09320a6e7c0c4379f5bc781";
-
     return Builder(
       builder: (context) => Stack(
         children: [
@@ -108,7 +112,7 @@ class _homeState extends State<home> {
               ),
               Container(
                 height: MediaQuery.of(context).size.height / 8,
-                child: translateCard("لغتنامه(بزودی)", "translate", context),
+                child: translateCard("لغتنامه", "translate", context),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
@@ -121,15 +125,11 @@ class _homeState extends State<home> {
                 height: MediaQuery.of(context).size.height / 30,
               ),
 
-              CachedNetworkImage(
-                imageUrl: "https://www.rodgraphic.ir/jamedadi/logo.png",
-                progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    CircularProgressIndicator(
-                  value: downloadProgress.progress,
-                  color: Theme.of(context).primaryColor,
-                ),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-              ),
+              // Expanded(
+              //   child: CachedNetworkImage(
+              //     imageUrl: "https://www.rodgraphic.ir/jamedadi/logo.png",
+              //   ),
+              // ),
               // Padding(
               //   padding: EdgeInsets.only(left: 10, right: 10),
               //   child: Container(
@@ -281,42 +281,8 @@ Widget translateCard(String title, String id, context) {
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: () {
-            showAnimatedDialog(
-                animationType: DialogTransitionType.slideFromBottomFade,
-                curve: Curves.fastOutSlowIn,
-                duration: Duration(seconds: 1),
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    title: new Text(
-                      "در حال توسعه....",
-                      style: Theme.of(context).textTheme.headline5,
-                      textDirection: TextDirection.rtl,
-                    ),
-                    content: new Text(
-                        "این بخش در حال توسعه است و بزودی راه اندازی خواهد شد",
-                        style: Theme.of(context).textTheme.bodyText1,
-                        textDirection: TextDirection.rtl),
-                    actions: <Widget>[
-                      new FlatButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(15)),
-                          ),
-                          color: Theme.of(context).accentColor,
-                          onPressed: () async {
-                            Navigator.of(context).pop();
-                          },
-                          child: new Text(
-                            "متوجه شدم",
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor),
-                          ))
-                    ],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),
-                    ),
-                  );
-                });
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Dictionary()));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

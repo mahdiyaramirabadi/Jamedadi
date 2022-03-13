@@ -45,7 +45,7 @@ const List<Widget> _tiles = <Widget>[
       "Kite",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Raute-de.svg/512px-Raute-de.svg.png",
       r"""\(A = {1 \over 2}de\)""",
-      ["d", "e"]),
+      ["d(قطر بزرگ)", "e(قطر کوچک)"]),
   _itemsTile(
       "متوازی الاضلع",
       "Parallelogram",

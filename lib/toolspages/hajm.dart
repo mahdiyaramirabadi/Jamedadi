@@ -21,7 +21,6 @@ const List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
   StaggeredTile.count(2, 1.5),
   StaggeredTile.count(2, 1.5),
   StaggeredTile.count(2, 1.5),
-  StaggeredTile.count(4, 1.5),
 ];
 
 const List<Widget> _tiles = <Widget>[
@@ -49,12 +48,12 @@ const List<Widget> _tiles = <Widget>[
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Pyramide-46-e.svg/512px-Pyramide-46-e.svg.png",
       r"""\(V = {1 \over 3}Bh\)<br> B=مساحت قائده""",
       ["B(مساحت قائده)", "h(ارتفاع)"]),
-  _itemsTile(
-      "متوازی السطوح",
-      "Parallelepiped",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Parallelepiped-1-tab.svg/512px-Parallelepiped-1-tab.svg.png",
-      r"""\(V = abc \sqrt K \)<br> \(K=1+2 \cos(\alpha)\cos(\beta )\cos(\gamma ) \\ - \cos^2(\alpha)-\cos^2(\beta )-\cos^2(\gamma)  \) """,
-      ["a", "b", "c", "آلفا", "بتا", "گاما"]),
+  // _itemsTile(
+  //     "متوازی السطوح",
+  //     "Parallelepiped",
+  //     "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Parallelepiped-1-tab.svg/512px-Parallelepiped-1-tab.svg.png",
+  //     r"""\(V = abc \sqrt K \)<br> \(K=1+2 \cos(\alpha)\cos(\beta )\cos(\gamma ) \\ - \cos^2(\alpha)-\cos^2(\beta )-\cos^2(\gamma)  \) """,
+  //     ["a", "b", "c", "آلفا", "بتا", "گاما"]),
   _itemsTile(
       "چهاروجهی منتظم",
       "Tetrahedron",

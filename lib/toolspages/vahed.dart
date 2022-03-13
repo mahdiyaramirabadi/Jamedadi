@@ -104,7 +104,7 @@ class _tabdil_vahedState extends State<tabdil_vahed> {
                         elevation: 10,
                         duration: Duration(milliseconds: 950),
                         animationCurve: Curves.easeInOut,
-                        barrierColor: Color.fromRGBO(0, 0, 0, .8),
+                        barrierColor: Color.fromRGBO(0, 0, 0, .5),
                       );
                       setState(() {
                         zarib1_hint = zarib_list1[0];
@@ -317,11 +317,19 @@ class _tabdil_vahedState extends State<tabdil_vahed> {
         });
       } else if (zarib_dade != 11 && zarib_khaste != 11) {
         setState(() {
+          var result;
           int zarib_kol = zarib_dade + (-1 * zarib_khaste);
           int res_yeka = zarib_kol * tavan_kol;
-          var result = adad * (pow(10, res_yeka));
+          print(res_yeka);
+          result = adad * (pow(10, res_yeka));
+          if (res_yeka >= 48) {
+            result = adad * (pow(10, res_yeka.toDouble()));
+            print("this");
+            print(result);
+          }
+          print(pow(10, 48.0));
           String text_result = adad.toString() +
-              " ˟ 10 ^" +
+              " × 10 ^" +
               res_yeka.toString() +
               " = " +
               result.toString();
@@ -333,7 +341,7 @@ class _tabdil_vahedState extends State<tabdil_vahed> {
           int res_yeka = zarib_kol * tavan_kol;
           var result = adad * (pow(10, res_yeka));
           String text_result = adad.toString() +
-              " ˟ 10 ^" +
+              " × 10 ^" +
               res_yeka.toString() +
               " = " +
               result.toString();
@@ -345,7 +353,7 @@ class _tabdil_vahedState extends State<tabdil_vahed> {
           int res_yeka = zarib_kol * tavan_kol;
           var result = adad * (pow(10, res_yeka));
           String text_result = adad.toString() +
-              " ˟ 10 ^" +
+              " × 10 ^" +
               res_yeka.toString() +
               " = " +
               result.toString();

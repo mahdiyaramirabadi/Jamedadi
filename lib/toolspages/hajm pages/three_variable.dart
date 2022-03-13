@@ -221,11 +221,10 @@ class _ThreevarState extends State<Threevar> {
                       child: Center(
                         child: Text(_result,
                             style: TextStyle(
-                                fontFamily: "Vazir",
-                                fontSize:
-                                    MediaQuery.of(context).size.width / 18,
-                                color: Theme.of(context).hintColor,
-                                decoration: TextDecoration.underline)),
+                              fontFamily: "Vazir",
+                              fontSize: MediaQuery.of(context).size.width / 18,
+                              color: Theme.of(context).hintColor,
+                            )),
                       ),
                     ),
                     SizedBox(

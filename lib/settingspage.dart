@@ -1,13 +1,7 @@
-import 'dart:convert';
 import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:jamedadi/ThemeManager.dart';
-import 'package:jamedadi/MyWebView.dart';
 import 'package:jamedadi/about_us.dart';
-import 'package:jamedadi/main.dart';
-
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'Theme_Provider.dart';

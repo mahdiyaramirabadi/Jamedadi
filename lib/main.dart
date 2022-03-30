@@ -1,5 +1,5 @@
+import 'dart:developer';
 import 'dart:io';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,7 +11,9 @@ import 'package:jamedadi/dictionary.dart';
 import 'package:jamedadi/lesson.dart';
 import 'package:jamedadi/settingspage.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
+import 'package:sqflite/sqflite.dart';
 // import 'package:http/http.dart';
 import 'homeItem.dart';
 import 'tools.dart';
@@ -19,7 +21,8 @@ import 'package:share_plus/share_plus.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.blue, // navigation bar color
+    systemNavigationBarColor:
+        Colors.blue.withOpacity(0), // navigation bar color
     statusBarColor: Color.fromRGBO(0, 0, 0, 0), // status bar color
   ));
   return runApp(MyApp());
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: notifier.darkTheme! ? dark : light,
             home: home(),
-            title: "Jamedadi",
+            title: "Jabe Abzar",
           );
         }),
       );
@@ -49,12 +52,73 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  // void CheckDB() async {
+  //   var databasePath = await getDatabasesPath();
+  //   var path = join(databasePath, "dict.db");
+  //   print(path.toString());
+  //   var exist = await databaseExists(path);
+
+  //   if (!exist) {
+  //     print("create new DB");
+  //     try {
+  //       await Directory(dirname(path)).create(recursive: true);
+  //     } catch (exc) {
+  //       print(exc.toString());
+  //     }
+
+  //     ByteData data = await rootBundle.load(join("assets", "dict.db"));
+  //     List<int> bytes =
+  //         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+  //     await File(path).writeAsBytes(bytes, flush: true);
+  //   } else {
+  //     print("opening DB");
+  //   }
+
+  //   var db = await openDatabase(path, version: 2, readOnly: true,
+  //       onCreate: (db, version) {
+  //     db.execute(
+  //         "CREATE TABLE moin_table(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,word TEXT,meaning TEXT,type INTEGER,fav INTEGER)");
+  //   });
+  //   var result = await db.query("moin_table");
+  //   print(result.toString());
+  // }
+
+  Future<Database> _initDatabase() async {
+    var databasesPath = await getDatabasesPath();
+    var path = join(databasesPath, "dict.db");
+
+    if (!await databaseExists(path)) {
+      print("database is create");
+
+      // Create Database if Not Exists.
+      try {
+        await Directory(dirname(path)).create(recursive: true);
+
+        ByteData data = await rootBundle.load(join("assets/", "dict.db"));
+        List<int> bytes =
+            data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+
+        await File(path).writeAsBytes(bytes, flush: true);
+      } catch (e) {
+        log('$e');
+      }
+    } else {
+      print("database is open");
+    }
+    var db = await openDatabase(path);
+    var result = db.query("moin_table");
+    print(result.toString());
+    return db;
+  }
+
   static GlobalKey previewContainer = GlobalKey();
   List<HomeItem> _items = [];
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    _initDatabase();
+    // CheckDB();
     // fetchItems();
   }
 
@@ -64,7 +128,7 @@ class _homeState extends State<home> {
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
           title: Text(
-            "جامدادی",
+            "جعبه ابزار",
             style: TextStyle(
               fontFamily: "Vazir",
               color: Theme.of(context).accentColor,

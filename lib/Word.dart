@@ -1,4 +1,4 @@
-class Course {
+class Word {
   //attributes = fields in table
   int? _id;
   String? _word;
@@ -8,7 +8,8 @@ class Course {
     _word = obj['word'];
     _meaning = obj['meaning'];
   }
-  Course.fromMap(Map<String, dynamic> data) {
+
+  Word.fromMap(Map<String, dynamic> data) {
     _id = data['id'];
     _word = data['word'];
     _meaning = data['meaning'];

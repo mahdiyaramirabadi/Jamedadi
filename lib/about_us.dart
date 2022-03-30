@@ -22,7 +22,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         title: Text(
-          "جامدادی",
+          "جعبه ابزار",
           style: TextStyle(
             fontFamily: "Vazir",
             color: Theme.of(context).accentColor,
@@ -64,7 +64,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                   Container(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      ":درباره جامدادی",
+                      ":درباره جعبه ابزار",
                       style: TextStyle(
                           fontSize: 24,
                           color: Theme.of(context).accentColor,
@@ -74,7 +74,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                   Container(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        "جامدادی اپلیکیشنی جامع متشکل از ابزارهای محاسباتی،درسنامه هاو نمونه سوالات مناسب مقطع تحصیلی متوسطه اول است.در بخش ابزارها شما به ابزارهای محاسباتی مختلفی نظیر تبدیل واحد ها در ضرایب گوناگون،غربال اعداد و ... دسترسی دارید.بخش درسنامه ها و نمونه سوالات مخزنی از درسنامه ها و نمونه‌سوالات با کیفیت هست که بزودی همراه بخش لغتنامه راه اندازی خواهد شد.",
+                        "جعبه ابزار اپلیکیشنی جامع متشکل از ابزارهای محاسباتی،درسنامه هاو نمونه سوالات مناسب مقطع تحصیلی متوسطه اول است.در بخش ابزارها شما به ابزارهای محاسباتی مختلفی نظیر تبدیل واحد ها در ضرایب گوناگون،غربال اعداد و ... دسترسی دارید.بخش درسنامه ها و نمونه سوالات مخزنی از درسنامه ها و نمونه‌سوالات با کیفیت هست که بزودی راه اندازی خواهد شد.",
                         style: Theme.of(context).textTheme.bodyText1,
                         textDirection: TextDirection.rtl,
                         textAlign: TextAlign.justify,
@@ -82,7 +82,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                   Container(
                     alignment: Alignment.centerRight,
                     child: Text(
-                      ":تیم جامدادی",
+                      ":تیم جعبه ابزار",
                       style: TextStyle(
                           fontSize: 24,
                           color: Theme.of(context).accentColor,
@@ -92,7 +92,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                   Container(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        '''تیم جامدادی تیمی متشکل از دانش اموزان دبیرستان هاشـمـی نـژاد یک (مرکز 1 اسـتـعـداد های درخـشـان) اسـت که همواره سعی بر بهتر شدن جامدادی دارند. تیمی خلاق و پیشرو!
+                        '''تیم جعبه ابزار تیمی متشکل از دانش اموزان دبیرستان هاشـمـی نـژاد یک (مرکز 1 اسـتـعـداد های درخـشـان) اسـت که همواره سعی بر بهتر شدن جعبه ابزار دارند. تیمی خلاق و پیشرو!
 برنامه نویسان: مهدی‌یار امیرآبادی ، محمد عرفان معتمد زاده
 طراح UI و گرافیک : مهدی‌یار برهمت ، مهدی‌یار امیرآبادی
                         ''',
@@ -114,7 +114,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
             height: 50,
             child: Padding(
                 padding: EdgeInsets.only(bottom: 15, top: 10),
-                child: Text("جامدادی نسخه 1.0")),
+                child: Text("جعبه ابزار نسخه 1.0")),
           ),
         )
       ],

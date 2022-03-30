@@ -1,4 +1,4 @@
-import 'package:jamedadi/course.dart';
+import 'package:jamedadi/Word.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -18,27 +18,19 @@ class DbHelper {
     //define the path to the database
     String path = join(await getDatabasesPath(), 'dict.db');
     _db = await openDatabase(path);
-    //create tables
-    //   db.execute(
-    //       'create table moin_table(id integer primary key autoincrement, word varchar(50), meaning varchar(255))');
-    // }, onUpgrade: (Database db, int oldV, int newV) async {
-    //   if (oldV < newV) {
-    //     await db.execute("alter table moin_table add column level varchar(50) ");
-    //   }
-    // }
 
     return _db!;
   }
 
-  Future<int> createCourse(Course course) async {
+  Future<int> createWord(Word Word) async {
     Database db = await createDatabase();
-    //db.rawInsert('insert into courses value')
-    return db.insert('moin_table', course.toMap());
+    //db.rawInsert('insert into Words value')
+    return db.insert('moin_table', Word.toMap());
   }
 
-  Future<List> allCourses() async {
+  Future<List> allWords() async {
     Database db = await createDatabase();
-    //db.rawQuery('select * from courses');
+    //db.rawQuery('select * from Words');
     return db.query('moin_table');
   }
 
@@ -47,9 +39,9 @@ class DbHelper {
     return db.delete('moin_table', where: 'id = ?', whereArgs: [id]);
   }
 
-  Future<int> courseUpdate(Course course) async {
+  Future<int> WordUpdate(Word Word) async {
     Database db = await createDatabase();
-    return await db.update('moin_table', course.toMap(),
-        where: 'id = ?', whereArgs: [course.id]);
+    return await db.update('moin_table', Word.toMap(),
+        where: 'id = ?', whereArgs: [Word.id]);
   }
 }

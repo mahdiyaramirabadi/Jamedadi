@@ -149,18 +149,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 InkWell(
                   onTap: () {
-                    _launchURLBrowser("https://zil.ink/jamedadi");
-                  }
-
-                  // () {
-                  //   Navigator.of(context).push(MaterialPageRoute(
-                  //       builder: (BuildContext context) => MyWebView(
-                  //             title: "ارتباط با ما",
-                  //             selectedUrl:
-                  //                 "https://mahdiyaramirabadi.github.io/jamedadisite/",
-                  //           )));
-                  // }
-                  ,
+                    _launchURLBrowser("https://zil.ink/jabeabzar");
+                  },
                   child: Row(
                     children: [
                       Expanded(

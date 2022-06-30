@@ -11,7 +11,7 @@ import 'package:jamedadi/Samplequestions.dart';
 import 'package:jamedadi/Theme_Provider.dart';
 import 'package:jamedadi/ToDo_List/TodoClass.dart';
 import 'package:jamedadi/ToDo_List/mainPage.dart';
-import 'package:jamedadi/dictionary.dart';
+import 'package:jamedadi/dict_page/dictionary.dart';
 import 'package:jamedadi/lesson.dart';
 import 'package:jamedadi/settingspage.dart';
 import 'package:page_transition/page_transition.dart';
@@ -140,8 +140,10 @@ class _homeState extends State<home> {
                         left: 5),
                     child: Row(
                       children: [
-                        generateItem("نمونه سوالات", "samplequestion", context),
-                        generateItem("درسنامه ها", "lesson", context),
+                        // generateItem("نمونه سوالات", "samplequestion", context),
+                        // generateItem("درسنامه ها", "lesson", context),
+                        generateItem("فهرست کارها", "ToDo", context),
+                        generateItem("واژه نامه", "dict", context),
                         generateItem("ابزارها", "tool", context)
                       ],
                     ),
@@ -151,20 +153,20 @@ class _homeState extends State<home> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 25,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height / 8,
-                child: BottomTile("لغتنامه", "translate", context),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 30,
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height / 8,
-                child: BottomTile("فهرست کارها", "ToDo", context),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height / 30,
-              ),
+              // Container(
+              //   height: MediaQuery.of(context).size.height / 8,
+              //   child: BottomTile("لغتنامه", "dict", context),
+              // ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height / 30,
+              // ),
+              // Container(
+              //   height: MediaQuery.of(context).size.height / 8,
+              //   child: BottomTile("فهرست کارها", "ToDo", context),
+              // ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height / 30,
+              // ),
               Container(
                 height: MediaQuery.of(context).size.height / 8,
                 child: settingCard("تنظیمات", "settings", context),
@@ -256,35 +258,20 @@ Widget generateItem(String title, String id, context) {
         borderRadius: BorderRadius.circular(30),
         onTap: () {
           if (id == "tool") {
-            Navigator.push(
-                context,
-                PageTransition(
-                  curve: Curves.linear,
-                  type: PageTransitionType.scale,
-                  alignment: Alignment.centerRight,
-                  duration: Duration(seconds: 1),
-                  child: toolsItem(),
-                ));
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => toolsItem()));
           } else if (id == "lesson") {
-            Navigator.push(
-                context,
-                PageTransition(
-                  curve: Curves.linear,
-                  type: PageTransitionType.scale,
-                  alignment: Alignment.centerRight,
-                  duration: Duration(seconds: 1),
-                  child: Lesson(),
-                ));
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Lesson()));
           } else if (id == "samplequestion") {
-            Navigator.push(
-                context,
-                PageTransition(
-                  curve: Curves.linear,
-                  type: PageTransitionType.scale,
-                  alignment: Alignment.centerRight,
-                  duration: Duration(seconds: 1),
-                  child: Samplequestion(),
-                ));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => Samplequestion()));
+          } else if (id == "dict") {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => Dictionary()));
+          } else if (id == "ToDo") {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => ToDoPage()));
           }
         },
         child: Column(

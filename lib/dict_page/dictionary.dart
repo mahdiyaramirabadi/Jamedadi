@@ -1,13 +1,7 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:jamedadi/dbhelper.dart';
+import 'package:jamedadi/dict_page/dbhelper.dart';
 import 'package:jamedadi/dict_page/dictPage.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:sqflite/sqflite.dart';
-
 import 'Word.dart';
 
 class Dictionary extends StatefulWidget {
@@ -17,7 +11,7 @@ class Dictionary extends StatefulWidget {
 
 class _DictionaryState extends State<Dictionary> {
   DbHelper? helper;
-  TextEditingController teSeach = TextEditingController();
+  TextEditingController teSearch = TextEditingController();
   var allWord = [];
   var items = [];
 
@@ -42,7 +36,10 @@ class _DictionaryState extends State<Dictionary> {
       var dummyListData = [];
       dummySearchList.forEach((item) {
         var word = Word.fromMap(item);
-        if (word.word!.toLowerCase().contains(query)) {
+        // if (word.word!.toLowerCase().contains(query)) {
+        //   dummyListData.add(item);
+        // }
+        if (word.word!.startsWith(query, 0)) {
           dummyListData.add(item);
         }
       });
@@ -133,7 +130,7 @@ class _DictionaryState extends State<Dictionary> {
                           });
                         },
                         textAlign: TextAlign.right,
-                        controller: teSeach,
+                        controller: teSearch,
                         decoration: InputDecoration(
                             hintText: '...جستجو',
                             hintStyle: TextStyle(

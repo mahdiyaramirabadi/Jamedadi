@@ -1,14 +1,8 @@
-import 'dart:developer';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:jamedadi/Word.dart';
-import 'package:jamedadi/dbhelper.dart';
-import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
+import 'package:jamedadi/dict_page/Word.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:sqflite/sqflite.dart';
 
 class DictPage extends StatelessWidget {
   Word wordpack;

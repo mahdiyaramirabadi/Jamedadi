@@ -1,4 +1,4 @@
-import 'package:jamedadi/Word.dart';
+import 'package:jamedadi/dict_page/Word.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 

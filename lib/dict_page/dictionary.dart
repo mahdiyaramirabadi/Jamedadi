@@ -36,9 +36,6 @@ class _DictionaryState extends State<Dictionary> {
       var dummyListData = [];
       dummySearchList.forEach((item) {
         var word = Word.fromMap(item);
-        // if (word.word!.toLowerCase().contains(query)) {
-        //   dummyListData.add(item);
-        // }
         if (word.word!.startsWith(query, 0)) {
           dummyListData.add(item);
         }

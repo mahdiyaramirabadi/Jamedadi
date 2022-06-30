@@ -59,19 +59,19 @@ const List<Widget> _tiles = <Widget>[
       r"""\(A = {(a+c)h \over 2}\)""",
       ["a", "c", "h"]),
   _itemsTile(
-      "شش ظلعی منتظم",
+      "شش ضلعی منتظم",
       "hexagon",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Hexagon-a.svg/512px-Hexagon-a.svg.png",
       r"""\(A = {3 \over 2} {\sqrt 3} a^2\)""",
       ["a"]),
   _itemsTile(
-      "هشت ظلعی منتظم",
+      "هشت ضلعی منتظم",
       "octagon",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Oktagon-a.svg/512px-Oktagon-a.svg.png",
       r"""\(A = 2(1 + {\sqrt 2})a^2\)""",
       ["a"]),
   _itemsTile(
-      "چند ظلعی منتظم",
+      "چند ضلعی منتظم",
       "polygon",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Oktagon-a-r-R.svg/150px-Oktagon-a-r-R.svg.png",
       r"""\(A = {\frac {na^{2}}{4\cdot \tan(\pi /n)}}\)<br> یا \(A = {\tfrac {1}{2}}Rp\)""",

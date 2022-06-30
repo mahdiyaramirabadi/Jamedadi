@@ -36,13 +36,13 @@ class _DictionaryState extends State<Dictionary> {
     // CheckDB();
   }
 
-  void filterSeach(String query) async {
+  void filterSearch(String query) async {
     var dummySearchList = allWord;
     if (query.isNotEmpty) {
       var dummyListData = [];
       dummySearchList.forEach((item) {
-        var course = Word.fromMap(item);
-        if (course.word!.toLowerCase().contains(query.toLowerCase())) {
+        var word = Word.fromMap(item);
+        if (word.word!.toLowerCase().contains(query)) {
           dummyListData.add(item);
         }
       });
@@ -129,7 +129,7 @@ class _DictionaryState extends State<Dictionary> {
                       child: TextField(
                         onChanged: (value) {
                           setState(() {
-                            filterSeach(value);
+                            filterSearch(value);
                           });
                         },
                         textAlign: TextAlign.right,

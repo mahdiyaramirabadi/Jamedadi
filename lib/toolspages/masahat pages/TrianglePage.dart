@@ -20,7 +20,7 @@ const List<Widget> _tiles = <Widget>[
       r"""\(A = {1 \over 2}bh\)""",
       ["b", "h"]),
   _itemsTile(
-      "مساحت با سه ظلع و محیط",
+      "مساحت با سه ضلع و محیط",
       "s-abc",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Dreieck-allg.svg/512px-Dreieck-allg.svg.png",
       r"""\(A={\sqrt {s(s-a)(s-b)(s-c)}}\)""",

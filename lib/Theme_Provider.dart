@@ -2,6 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 ThemeData light = ThemeData(
+    // timePickerTheme: TimePickerThemeData(
+    //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+    //   dialHandColor: Color.fromRGBO(1, 206, 209, 1),
+    //   dayPeriodColor: Color.fromRGBO(1, 206, 209, 1),
+    //   hourMinuteTextColor: Color.fromRGBO(1, 206, 209, 1),
+    //   dialTextColor: Color.fromRGBO(1, 206, 209, 1),
+    //   inputDecorationTheme: InputDecorationTheme(
+    //       focusColor: Color.fromRGBO(1, 206, 209, 1),
+    //       hoverColor: Color.fromRGBO(1, 206, 209, 1),
+    //       enabledBorder: OutlineInputBorder(
+    //           borderSide: BorderSide(
+    //             width: 1,
+    //             color: Color.fromRGBO(1, 206, 209, 1),
+    //           ),
+    //           borderRadius: BorderRadius.circular(10))),
+    //   dayPeriodTextColor: Color.fromRGBO(1, 206, 209, 1),
+    //   dialBackgroundColor: Color.fromRGBO(1, 206, 209, 0.3),
+    // ),
     brightness: Brightness.light,
     primaryColor: Colors.white,
     accentColor: Color.fromRGBO(1, 206, 209, 1),

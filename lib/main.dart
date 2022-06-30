@@ -4,9 +4,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:jamedadi/Samplequestions.dart';
 import 'package:jamedadi/Theme_Provider.dart';
+import 'package:jamedadi/ToDo_List/TodoClass.dart';
+import 'package:jamedadi/ToDo_List/mainPage.dart';
 import 'package:jamedadi/dictionary.dart';
 import 'package:jamedadi/lesson.dart';
 import 'package:jamedadi/settingspage.dart';
@@ -18,13 +22,19 @@ import 'package:sqflite/sqflite.dart';
 import 'homeItem.dart';
 import 'tools.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:jamedadi/ToDo_List/CardClass.dart';
 
-void main() {
+Future<void> main() async {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor:
         Colors.blue.withOpacity(0), // navigation bar color
     statusBarColor: Color.fromRGBO(0, 0, 0, 0), // status bar color
   ));
+  await Hive.initFlutter();
+  Hive.registerAdapter(CardTodoAdapter());
+  Hive.registerAdapter(ColorAdapter());
+  Hive.registerAdapter(TodoAdapter());
+  await Hive.openBox<CardTodo>('TodoCard');
   return runApp(MyApp());
 }
 
@@ -52,37 +62,6 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
-  // void CheckDB() async {
-  //   var databasePath = await getDatabasesPath();
-  //   var path = join(databasePath, "dict.db");
-  //   print(path.toString());
-  //   var exist = await databaseExists(path);
-
-  //   if (!exist) {
-  //     print("create new DB");
-  //     try {
-  //       await Directory(dirname(path)).create(recursive: true);
-  //     } catch (exc) {
-  //       print(exc.toString());
-  //     }
-
-  //     ByteData data = await rootBundle.load(join("assets", "dict.db"));
-  //     List<int> bytes =
-  //         data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
-  //     await File(path).writeAsBytes(bytes, flush: true);
-  //   } else {
-  //     print("opening DB");
-  //   }
-
-  //   var db = await openDatabase(path, version: 2, readOnly: true,
-  //       onCreate: (db, version) {
-  //     db.execute(
-  //         "CREATE TABLE moin_table(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,word TEXT,meaning TEXT,type INTEGER,fav INTEGER)");
-  //   });
-  //   var result = await db.query("moin_table");
-  //   print(result.toString());
-  // }
-
   Future<Database> _initDatabase() async {
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, "dict.db");
@@ -118,8 +97,6 @@ class _homeState extends State<home> {
     // TODO: implement initState
     super.initState();
     _initDatabase();
-    // CheckDB();
-    // fetchItems();
   }
 
   @override
@@ -176,7 +153,14 @@ class _homeState extends State<home> {
               ),
               Container(
                 height: MediaQuery.of(context).size.height / 8,
-                child: translateCard("لغتنامه", "translate", context),
+                child: BottomTile("لغتنامه", "translate", context),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 30,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height / 8,
+                child: BottomTile("فهرست کارها", "ToDo", context),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 30,
@@ -332,7 +316,7 @@ Widget generateItem(String title, String id, context) {
   );
 }
 
-Widget translateCard(String title, String id, context) {
+Widget BottomTile(String title, String id, context) {
   return Padding(
     padding: EdgeInsets.only(left: 10, right: 10),
     child: Card(
@@ -345,8 +329,13 @@ Widget translateCard(String title, String id, context) {
         child: InkWell(
           borderRadius: BorderRadius.circular(30),
           onTap: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Dictionary()));
+            if (id == "translate") {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Dictionary()));
+            } else if (id == "ToDo") {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => ToDoPage()));
+            }
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -1,13 +1,7 @@
 class Word {
-  //attributes = fields in table
   int? _id;
   String? _word;
   String? _meaning;
-  Course(dynamic obj) {
-    _id = obj['id'];
-    _word = obj['word'];
-    _meaning = obj['meaning'];
-  }
 
   Word.fromMap(Map<String, dynamic> data) {
     _id = data['id'];

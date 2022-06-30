@@ -54,10 +54,16 @@ dependencies:
   share_plus: ^3.0.4
   flutter_tex: ^4.0.3+1
   curved_navigation_bar: ^1.0.3
+  shamsi_date: ^1.0.1
+  persian_datetime_picker: ^2.5.0
+  hive: ^2.0.5
+  hive_flutter: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_launcher_icons: "^0.9.2"
+  hive_generator: ^1.1.2
+  build_runner: ^2.1.7
  
 flutter_icons:
   android: true
